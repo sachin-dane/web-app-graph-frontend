@@ -5,7 +5,9 @@ import signupSaga from './signupSaga'
 
 
 export default function* rootSaga() {
-    yield all([dashboardSaga()]);
-    yield all([loginSaga()]);
-    yield all([signupSaga()]);
+    yield all([
+        loginSaga(),
+        signupSaga(),
+        dashboardSaga(),
+    ]);
 }
