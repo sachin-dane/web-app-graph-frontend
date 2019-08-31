@@ -14,7 +14,7 @@ import View from './views/View';
 import PageNotFound from './views/ui/PageNotFound';
 
 class App extends React.Component {
-    componentWillUnmount() {}
+    componentWillUnmount() { }
 
     render() {
         return (

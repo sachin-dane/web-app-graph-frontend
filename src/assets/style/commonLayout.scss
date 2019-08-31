@@ -1,0 +1,214 @@
+/*============   RESET          */
+
+* {
+    padding: 0;
+    margin: 0;
+    /*suppression des margin et padding de toutes les balises*/
+    box-sizing: border-box;
+    /* pour maîtriser width et flex-basis */
+    list-style: none;
+    /*suppression des puces*/
+    text-decoration: none;
+    /*suppresion des soulignements des liens*/
+    font-family: 'Lato', sans-serif;
+  }
+  
+  
+  /*couleurs desfonds*/
+  
+  nav {
+    background-color: #37474f;
+  }
+  
+  footer {
+    background-color: #263238;
+  }
+  
+  section {
+    padding: 32px;
+  }
+  
+  aside p {
+    background-color: #90A4AE;
+    padding: 8px;
+    height: 10vh;
+  }
+  
+  nav a {
+    font-size: 1.5vw;
+    text-transform: uppercase;
+  }
+  /*=================================     POSITIONNEMENT DE LA NAV + MAIN + FOOTER
+  */
+  
+  body {
+    display: flex;
+    /* crée un contexte flex pour ses enfants */
+    flex-direction: column;
+    /* on place les balises enfants header, main et footer verticalement*/
+    min-height: 100vh;
+    /* le body prend toute la hauteur du viewport */
+  }
+  
+  header nav {
+    position: fixed;
+    width: 100%;
+  }
+  
+  main {
+    flex: 1;
+    /* occupe la hauteur restante  */
+    padding: 15vh 0 0 0;
+  }
+  
+  
+  
+  /*======================================  
+  LI + A 
+  =======================================*/
+  
+  
+  header ul {
+    display: flex;
+  }
+  /* crée un contexte flex pour ses enfants */
+  
+  header li {
+    flex: 1;
+    /* occupe la largeur restante  */
+  }
+  
+  a:hover {
+    background-color: #607D8B;
+  }
+  
+  .active {
+    background-color: #607D8B;
+  }
+  
+  header a {
+    height: 15vh;
+    display: flex;
+    /* crée un contexte flex pour centrer le contenu de la balise a */
+    justify-content: center;
+    /*alignement horizontal*/
+    align-items: center;
+    /*alignement vertical*/
+    flex: 1;
+    /*on autorise la balise a à prendre toute la place disponible*/
+  }
+
+  main {
+    display: flex;
+    /* crée un contexte flex pour ses enfants */
+    flex-flow: wrap;
+    /*permet de faire passer les elements enfant à la ligne (utilise pour le rwd)*/
+  }
+  
+  aside {
+    position: fixed;
+    z-index: 10;
+    min-width: 20%;
+    height: calc(100% - 25vh);
+    /*hauteur des li : 15vh + hauteur du footer 10vh = 25vh*/
+  }
+  
+  section {
+    flex: 1;
+    /* occupe la hauteur restante  */
+    margin-left: 20%;
+  }
+  
+  section p {
+    margin-bottom: 32px;
+    color: black;
+    text-align: justify;
+  }
+  
+  
+  /* FOOTER */
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 5;
+    height: 8vh;
+    display: flex;
+    flex-flow: column wrap;
+  }
+  
+  footer p {
+    flex: 1;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center
+  }
+
+  aside {
+    display: flex;
+    flex-flow: column wrap;
+  }
+  
+  
+  aside nav {
+    display: flex;
+    flex-flow: column wrap;
+    flex: 1;
+  }
+  
+  
+  
+  aside ul {
+    flex: 1;/* occupe toute la place restante */
+    display: flex;
+    flex-flow: column wrap;
+  }
+  
+  aside li {
+    flex: 1; 
+    display: flex;
+  
+  }
+  
+  aside a {
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    /*on centre horiz et vertic grace flexbox*/
+  }
+  
+  @media screen and (max-width: 940px) {
+    aside {
+      display: none;
+    }
+    section {
+      margin: 0
+    }
+  }
+
+  .signup-form{
+    margin-top: 140px;
+    .row{
+      padding-bottom: 15px;
+    }
+  }
+
+.sign-form{
+  margin-top: 180px;
+  .row{
+    padding-bottom: 15px;
+  }
+}
+
+  input[type="date"]::before { 
+    content: attr(data-placeholder);
+    width: 100%;
+  }
+  
+  /* hide our custom/fake placeholder text when in focus to show the default
+   * 'mm/dd/yyyy' value and when valid to show the users' date of birth value.
+   */
+  input[type="date"]:focus::before,
+  input[type="date"]:valid::before { display: none }

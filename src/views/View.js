@@ -6,8 +6,10 @@ import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import { ToastContainer } from 'react-toastify';
 
-import Navbar from './ui/Navbar';
-
+import Header from './ui/Header'
+import Footer from './ui/Footer'
+import SignIn from './pages/HomePage/SignIn'
+import SignUp from './pages/HomePage/SignUp'
 import userAbilities from '../helpers/userAbilities';
 import DashboardContainer from './pages/Dashboard/DashboardContainer';
 
@@ -40,11 +42,25 @@ const routes = [
     // }
 ];
 
+const nonLoginRoutes = [
+    {
+        component: SignIn,
+        path: '/signin',
+        exact: true
+    },
+    {
+        component: SignUp,
+        path: '/signup',
+        exact: true
+    },
+];
+
+
 class View extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            authenticated: true,
+            authenticated: false,
             keycloak: null
         };
     }
@@ -104,33 +120,63 @@ class View extends React.Component {
         );
     };
 
+    nonLoginGenerateRoutes = user => {
+        console.log('This props ==>>', this.props)
+        /* eslint-disable consistent-return, array-callback-return */
+        return (
+            <Switch>
+                {nonLoginRoutes.map(route => {
+                    // For routes with permission
+                    // For routes that don't have permission
+                    return (
+                        <Route
+                            exact={route.exact ? route.exact : false}
+                            path={route.path}
+                            component={route.component}
+                            key={route.path}
+                        />
+                    );
+
+                })}
+                <Redirect exact from="/" to="/signin" />
+                <Redirect to="/page-not-found" />
+            </Switch>
+        );
+    };
+
+
     render() {
         console.log('view props ==>>', this.props);
-        return this.state.authenticated ? (
+        return (
             <>
-                <Navbar
-                    user={this.props.user}
-                    handelLogout={this.handelLogout}
-                />
-                {this.generateRoutes(this.props.user)}
-                <ToastContainer
-                    position="top-center"
-                    autoClose={3000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeButton={false}
-                    rtl={false}
-                    pauseOnVisibilityChange
-                    draggable
-                    pauseOnHover
-                />
+                <Header />
+                {this.state.authenticated ? (
+                    <>
+
+                        {this.generateRoutes(this.props.user)}
+                        <ToastContainer
+                            position="top-center"
+                            autoClose={3000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeButton={false}
+                            rtl={false}
+                            pauseOnVisibilityChange
+                            draggable
+                            pauseOnHover
+                        />
+
+                    </>
+                ) : (
+                        this.nonLoginGenerateRoutes(this.props.user)
+                        // <div className="page-loader">
+                        //     <span />
+                        //     <i />
+                        // </div>
+                    )}
+                <Footer />
             </>
-        ) : (
-            <div className="page-loader">
-                <span />
-                <i />
-            </div>
-        );
+        )
     }
 }
 
