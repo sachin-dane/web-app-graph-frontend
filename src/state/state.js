@@ -32,6 +32,12 @@ const initialState = {
             isLoading: false,
             userList: []
         }
+    },
+    siteList: {
+        sitesListData: {
+            isLoading: false,
+            siteList: []
+        }
     }
 };
 
