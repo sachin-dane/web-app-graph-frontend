@@ -1,8 +1,6 @@
 import React from 'react';
 
-const TableList = ({ rules }) => {
-    const { result } = rules;
-    const { incidentSummary } = rules.entities;
+const UserTableList = ({ users }) => {
     return (
         <table className="table table-striped">
             <thead>
@@ -30,4 +28,4 @@ const TableList = ({ rules }) => {
         </table>
     );
 };
-export default TableList;
+export default UserTableList;

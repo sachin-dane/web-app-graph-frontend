@@ -1,508 +1,227 @@
 [
     {
-        "id": "5b008d42-68e1-4ca9-ae01-f75846b006a4",
-        "name": "delphine park",
+        "id": "1",
+        "firstname": "delphine",
+        "lastname": "park",
         "email": "delphine.park@example.com",
-        "role": null,
-        "status": "enabled",
+        "role": "Admin",
+        "status": "Active",
         "created_on": "2019-01-28T14:17:36+0000",
-        "created_by": {
-            "id": "96f03be0-82f5-435b-a3c1-206f7eb12a29",
-            "name": "joseph king"
-        },
-        "modified_on": "2019-01-31T14:17:36+0000",
-        "modified_by": {
-            "id": "96f03be0-82f5-435b-a3c1-206f7eb12a29",
-            "name": "joseph king"
-        },
-        "organizations": [
-            {
-                "id": "10ddd472-343d-11e9-b210-d663bd873d93",
-                "name": "DAILY BURN"
-            },
-            {
-                "id": "10ddd7f6-343d-11e9-b210-d663bd873d93",
-                "name": "vimeo"
-            },
-            {
-                "id": "10ddd972-343d-11e9-b210-d663bd873d93",
-                "name": "Agies list"
-            },
-            {
-                "id": "10ddddaa-343d-11e9-b210-d663bd873d93",
-                "name": "Handy"
-            }
-        ]
+        "phone_no": "+91 124567892",
+        "company_name": "CES",
+        "state": "United States",
+        "city": "Philadelphia",
+        "zipcode": "19099",
+        "address": "1528 Walnut St 22nd Floor, Philadelphia, PA 19102, USA"
     },
     {
-        "id": "e6402342-1fd0-44b8-a0b3-0daa849a777e",
-        "name": "santiago ibañez",
-        "email": "santiago.ibañez@example.com",
-        "role": null,
-        "status": "enabled",
-        "created_on": "2019-01-28T14:18:40+0000",
-        "created_by": {
-            "id": "652aa8d0-64a7-484d-805a-8454eda3d4d9",
-            "name": "ece erberk"
-        },
-        "modified_on": "2019-02-01T16:18:30+0000",
-        "modified_by": {
-            "id": "96f03be0-82f5-435b-a3c1-206f7eb12a29",
-            "name": "joseph king"
-        },
-        "organizations": [
-            {
-                "id": "10dddf1c-343d-11e9-b210-d663bd873d93",
-                "name": "HomeAdvisor"
-            },
-            {
-                "id": "10dde05c-343d-11e9-b210-d663bd873d93",
-                "name": "HomeStars"
-            },
-            {
-                "id": "10dde19c-343d-11e9-b210-d663bd873d93",
-                "name": "Match"
-            },
-            {
-                "id": "10dde2d2-343d-11e9-b210-d663bd873d93",
-                "name": "okupid"
-            }
-        ]
+        "id": "1",
+        "firstname": "delphine",
+        "lastname": "park",
+        "email": "delphine.park@example.com",
+        "role": "Admin",
+        "status": "Active",
+        "created_on": "2019-01-28T14:17:36+0000",
+        "phone_no": "+91 124567892",
+        "company_name": "CES",
+        "state": "United States",
+        "city": "Philadelphia",
+        "zipcode": "19099",
+        "address": "1528 Walnut St 22nd Floor, Philadelphia, PA 19102, USA"
     },
     {
-        "id": "96f03be0-82f5-435b-a3c1-206f7eb12a29",
-        "name": "joseph king",
-        "email": "joseph.king@example.com",
-        "role": "admin",
-        "status": "enabled",
-        "created_on": "2019-01-03T14:23:25+0000",
-        "created_by": {
-            "id": "",
-            "name": ""
-        },
-        "modified_on": "",
-        "modified_by": {
-            "id": "",
-            "name": ""
-        },
-        "organizations": []
+        "id": "1",
+        "firstname": "delphine",
+        "lastname": "park",
+        "email": "delphine.park@example.com",
+        "role": "Admin",
+        "status": "Active",
+        "created_on": "2019-01-28T14:17:36+0000",
+        "phone_no": "+91 124567892",
+        "company_name": "CES",
+        "state": "United States",
+        "city": "Philadelphia",
+        "zipcode": "19099",
+        "address": "1528 Walnut St 22nd Floor, Philadelphia, PA 19102, USA"
     },
     {
-        "id": "652aa8d0-64a7-484d-805a-8454eda3d4d9",
-        "name": "ece erberk",
-        "email": "ece.erberk@example.com",
-        "role": "site_admin",
-        "status": "enabled",
-        "created_on": "2019-01-04T14:23:56+0000",
-        "created_by": {
-            "id": "96f03be0-82f5-435b-a3c1-206f7eb12a29",
-            "name": "joseph king"
-        },
-        "modified_on": "2019-01-10T14:34:26+0000",
-        "modified_by": {
-            "id": "96f03be0-82f5-435b-a3c1-206f7eb12a29",
-            "name": "joseph king"
-        },
-        "organizations": []
+        "id": "1",
+        "firstname": "delphine",
+        "lastname": "park",
+        "email": "delphine.park@example.com",
+        "role": "Admin",
+        "status": "Active",
+        "created_on": "2019-01-28T14:17:36+0000",
+        "phone_no": "+91 124567892",
+        "company_name": "CES",
+        "state": "United States",
+        "city": "Philadelphia",
+        "zipcode": "19099",
+        "address": "1528 Walnut St 22nd Floor, Philadelphia, PA 19102, USA"
     },
     {
-        "id": "046ed664-b493-4d08-93f4-e66228b9d8a9",
-        "name": "alejandra helsloot",
-        "email": "alejandra.helsloot@example.com",
-        "role": "site_admin",
-        "status": "enabled",
-        "created_on": "2019-01-05T14:24:28+0000",
-        "created_by": {
-            "id": "652aa8d0-64a7-484d-805a-8454eda3d4d9",
-            "name": "ece erberk"
-        },
-        "modified_on": "2019-01-08T14:14:48+0000",
-        "modified_by": {
-            "id": "652aa8d0-64a7-484d-805a-8454eda3d4d9",
-            "name": "ece erberk"
-        },
-        "organizations": []
+        "id": "1",
+        "firstname": "delphine",
+        "lastname": "park",
+        "email": "delphine.park@example.com",
+        "role": "Admin",
+        "status": "Active",
+        "created_on": "2019-01-28T14:17:36+0000",
+        "phone_no": "+91 124567892",
+        "company_name": "CES",
+        "state": "United States",
+        "city": "Philadelphia",
+        "zipcode": "19099",
+        "address": "1528 Walnut St 22nd Floor, Philadelphia, PA 19102, USA"
     },
     {
-        "id": "fe5144ae-2132-4fc3-94a5-975b986822e1",
-        "name": "yvonne wagner",
-        "email": "yvonne.wagner@example.com",
-        "role": "site_admin",
-        "status": "enabled",
-        "created_on": "2019-01-06T14:25:03+0000",
-        "created_by": {
-            "id": "046ed664-b493-4d08-93f4-e66228b9d8a9",
-            "name": "alejandra helsloot"
-        },
-        "modified_on": "",
-        "modified_by": {
-            "id": "",
-            "name": ""
-        },
-        "organizations": []
+        "id": "1",
+        "firstname": "delphine",
+        "lastname": "park",
+        "email": "delphine.park@example.com",
+        "role": "Admin",
+        "status": "Active",
+        "created_on": "2019-01-28T14:17:36+0000",
+        "phone_no": "+91 124567892",
+        "company_name": "CES",
+        "state": "United States",
+        "city": "Philadelphia",
+        "zipcode": "19099",
+        "address": "1528 Walnut St 22nd Floor, Philadelphia, PA 19102, USA"
     },
     {
-        "id": "b40b32ca-3693-4f4c-98cf-6fc7b4980cbd",
-        "name": "madison fortin",
-        "email": "madison.fortin@example.com",
-        "role": "site_admin",
-        "status": "enabled",
-        "created_on": "2019-01-07T14:25:23+0000",
-        "created_by": {
-            "id": "fe5144ae-2132-4fc3-94a5-975b986822e1",
-            "name": "yvonne wagner"
-        },
-        "modified_on": "2019-01-20T14:23:30+0000",
-        "modified_by": {
-            "id": "96f03be0-82f5-435b-a3c1-206f7eb12a29",
-            "name": "joseph king"
-        },
-        "organizations": []
+        "id": "1",
+        "firstname": "delphine",
+        "lastname": "park",
+        "email": "delphine.park@example.com",
+        "role": "Admin",
+        "status": "Active",
+        "created_on": "2019-01-28T14:17:36+0000",
+        "phone_no": "+91 124567892",
+        "company_name": "CES",
+        "state": "United States",
+        "city": "Philadelphia",
+        "zipcode": "19099",
+        "address": "1528 Walnut St 22nd Floor, Philadelphia, PA 19102, USA"
     },
     {
-        "id": "393a9197-4134-475c-a5f6-f52330d914fb",
-        "name": "erkan meinke",
-        "email": "erkan.meinke@example.com",
-        "role": "site_admin",
-        "status": "enabled",
-        "created_on": "2019-01-08T14:25:44+0000",
-        "created_by": {
-            "id": "fe5144ae-2132-4fc3-94a5-975b986822e1",
-            "name": "yvonne wagner"
-        },
-        "modified_on": "2019-01-15T14:35:24+0000",
-        "modified_by": {
-            "id": "b40b32ca-3693-4f4c-98cf-6fc7b4980cbd",
-            "name": "madison fortin"
-        },
-        "organizations": []
+        "id": "1",
+        "firstname": "delphine",
+        "lastname": "park",
+        "email": "delphine.park@example.com",
+        "role": "Admin",
+        "status": "Active",
+        "created_on": "2019-01-28T14:17:36+0000",
+        "phone_no": "+91 124567892",
+        "company_name": "CES",
+        "state": "United States",
+        "city": "Philadelphia",
+        "zipcode": "19099",
+        "address": "1528 Walnut St 22nd Floor, Philadelphia, PA 19102, USA"
     },
     {
-        "id": "8bdc0b9f-cfb6-4929-8849-46c5a843e0be",
-        "name": "laura prieto",
-        "email": "laura.prieto@example.com",
-        "role": "site_admin",
-        "status": "enabled",
-        "created_on": "2019-01-09T14:26:14+0000",
-        "created_by": {
-            "id": "652aa8d0-64a7-484d-805a-8454eda3d4d9",
-            "name": "ece erberk"
-        },
-        "modified_on": "",
-        "modified_by": {
-            "id": "",
-            "name": ""
-        },
-        "organizations": []
+        "id": "1",
+        "firstname": "delphine",
+        "lastname": "park",
+        "email": "delphine.park@example.com",
+        "role": "Admin",
+        "status": "Active",
+        "created_on": "2019-01-28T14:17:36+0000",
+        "phone_no": "+91 124567892",
+        "company_name": "CES",
+        "state": "United States",
+        "city": "Philadelphia",
+        "zipcode": "19099",
+        "address": "1528 Walnut St 22nd Floor, Philadelphia, PA 19102, USA"
     },
     {
-        "id": "0eb53000-1fae-4329-8b71-ebc068147a96",
-        "name": "amanda vetter",
-        "email": "amanda.vetter@example.com",
-        "role": "site_admin",
-        "status": "enabled",
-        "created_on": "2019-01-10T09:16:29+0000",
-        "created_by": {
-            "id": "652aa8d0-64a7-484d-805a-8454eda3d4d9",
-            "name": "ece erberk"
-        },
-        "modified_on": "2019-01-20T09:36:49+0000",
-        "modified_by": {
-            "id": "8bdc0b9f-cfb6-4929-8849-46c5a843e0be",
-            "name": "laura prieto"
-        },
-        "organizations": []
+        "id": "1",
+        "firstname": "delphine",
+        "lastname": "park",
+        "email": "delphine.park@example.com",
+        "role": "Admin",
+        "status": "Active",
+        "created_on": "2019-01-28T14:17:36+0000",
+        "phone_no": "+91 124567892",
+        "company_name": "CES",
+        "state": "United States",
+        "city": "Philadelphia",
+        "zipcode": "19099",
+        "address": "1528 Walnut St 22nd Floor, Philadelphia, PA 19102, USA"
     },
     {
-        "id": "5cd7fef5-1dd0-4651-aa6a-580a10409f41",
-        "name": "halvard stenhaug",
-        "email": "halvard.stenhaug@example.com",
-        "role": "site_admin",
-        "status": "enabled",
-        "created_on": "2019-01-11T04:18:17+0000",
-        "created_by": {
-            "id": "96f03be0-82f5-435b-a3c1-206f7eb12a29",
-            "name": "joseph king"
-        },
-        "modified_on": "",
-        "modified_by": {
-            "id": "",
-            "name": ""
-        },
-        "organizations": []
+        "id": "1",
+        "firstname": "delphine",
+        "lastname": "park",
+        "email": "delphine.park@example.com",
+        "role": "Admin",
+        "status": "Active",
+        "created_on": "2019-01-28T14:17:36+0000",
+        "phone_no": "+91 124567892",
+        "company_name": "CES",
+        "state": "United States",
+        "city": "Philadelphia",
+        "zipcode": "19099",
+        "address": "1528 Walnut St 22nd Floor, Philadelphia, PA 19102, USA"
     },
     {
-        "id": "21f3f5a1-5bf8-4441-b28f-13550f53b426",
-        "name": "aubrey bergeron",
-        "email": "aubrey.bergeron@example.com",
-        "role": "site_admin",
-        "status": "enabled",
-        "created_on": "2019-01-12T17:15:53+0000",
-        "created_by": {
-            "id": "5cd7fef5-1dd0-4651-aa6a-580a10409f41",
-            "name": "halvard stenhaug"
-        },
-        "modified_on": "",
-        "modified_by": {
-            "id": "",
-            "name": ""
-        },
-        "organizations": []
+        "id": "1",
+        "firstname": "delphine",
+        "lastname": "park",
+        "email": "delphine.park@example.com",
+        "role": "Admin",
+        "status": "Active",
+        "created_on": "2019-01-28T14:17:36+0000",
+        "phone_no": "+91 124567892",
+        "company_name": "CES",
+        "state": "United States",
+        "city": "Philadelphia",
+        "zipcode": "19099",
+        "address": "1528 Walnut St 22nd Floor, Philadelphia, PA 19102, USA"
     },
     {
-        "id": "6f0da70d-a880-407b-857f-0d2060b8c985",
-        "name": "holly wright",
-        "email": "holly.wright@example.com",
-        "role": null,
-        "status": "enabled",
-        "created_on": "2019-01-27T07:21:11+0000",
-        "created_by": {
-            "id": "046ed664-b493-4d08-93f4-e66228b9d8a9",
-            "name": "alejandra helsloot"
-        },
-        "modified_on": "2019-01-29T09:21:07+0000",
-        "modified_by": {
-            "id": "652aa8d0-64a7-484d-805a-8454eda3d4d9",
-            "name": "ece erberk"
-        },
-        "organizations": [
-            {
-                "id": "10ddd472-343d-11e9-b210-d663bd873d93",
-                "name": "DAILY BURN"
-            },
-            {
-                "id": "10ddd7f6-343d-11e9-b210-d663bd873d93",
-                "name": "vimeo"
-            },
-            {
-                "id": "10dde19c-343d-11e9-b210-d663bd873d93",
-                "name": "Match"
-            },
-            {
-                "id": "10ddd972-343d-11e9-b210-d663bd873d93",
-                "name": "Agies list"
-            }
-        ]
+        "id": "1",
+        "firstname": "delphine",
+        "lastname": "park",
+        "email": "delphine.park@example.com",
+        "role": "Admin",
+        "status": "Active",
+        "created_on": "2019-01-28T14:17:36+0000",
+        "phone_no": "+91 124567892",
+        "company_name": "CES",
+        "state": "United States",
+        "city": "Philadelphia",
+        "zipcode": "19099",
+        "address": "1528 Walnut St 22nd Floor, Philadelphia, PA 19102, USA"
     },
     {
-        "id": "021bd2c7-343e-4930-9965-431fc67dc226",
-        "name": "agnes clement",
-        "email": "agnes.clement@example.com",
-        "role": null,
-        "status": "enabled",
-        "created_on": "2019-01-26T06:24:08+0000",
-        "created_by": {
-            "id": "046ed664-b493-4d08-93f4-e66228b9d8a9",
-            "name": "alejandra helsloot"
-        },
-        "modified_on": "2019-01-30T06:20:05+0000",
-        "modified_by": {
-            "id": "046ed664-b493-4d08-93f4-e66228b9d8a9",
-            "name": "alejandra helsloot"
-        },
-        "organizations": [
-            {
-                "id": "10ddd972-343d-11e9-b210-d663bd873d93",
-                "name": "Agies list"
-            },
-            {
-                "id": "10dde412-343d-11e9-b210-d663bd873d93",
-                "name": "PlentyOfFish"
-            },
-            {
-                "id": "10dde19c-343d-11e9-b210-d663bd873d93",
-                "name": "Match"
-            }
-        ]
+        "id": "1",
+        "firstname": "delphine",
+        "lastname": "park",
+        "email": "delphine.park@example.com",
+        "role": "Admin",
+        "status": "Active",
+        "created_on": "2019-01-28T14:17:36+0000",
+        "phone_no": "+91 124567892",
+        "company_name": "CES",
+        "state": "United States",
+        "city": "Philadelphia",
+        "zipcode": "19099",
+        "address": "1528 Walnut St 22nd Floor, Philadelphia, PA 19102, USA"
     },
     {
-        "id": "16deaf3d-8eea-4812-9958-1b00470f0177",
-        "name": "byron hawkins",
-        "email": "byron.hawkins@example.com",
-        "role": null,
-        "status": "enabled",
-        "created_on": "2019-01-25T04:24:12+0000",
-        "created_by": {
-            "id": "fe5144ae-2132-4fc3-94a5-975b986822e1",
-            "name": "yvonne wagner"
-        },
-        "modified_on": "2019-01-27T03:24:18+0000",
-        "modified_by": {
-            "id": "fe5144ae-2132-4fc3-94a5-975b986822e1",
-            "name": "yvonne wagner"
-        },
-        "organizations": [
-            {
-                "id": "10dde548-343d-11e9-b210-d663bd873d93",
-                "name": "tinder"
-            },
-            {
-                "id": "10dde05c-343d-11e9-b210-d663bd873d93",
-                "name": "HomeStars"
-            },
-            {
-                "id": "10ddd972-343d-11e9-b210-d663bd873d93",
-                "name": "Agies list"
-            }
-        ]
-    },
-    {
-        "id": "4ddfd745-0b05-4cb9-a9f4-f4aafa1723a7",
-        "name": "don simpson",
-        "email": "don.simpson@example.com",
-        "role": null,
-        "status": "enabled",
-        "created_on": "2019-01-24T09:27:34+0000",
-        "created_by": {
-            "id": "fe5144ae-2132-4fc3-94a5-975b986822e1",
-            "name": "yvonne wagner"
-        },
-        "modified_on": "2019-01-31T07:29:24+0000",
-        "modified_by": {
-            "id": "b40b32ca-3693-4f4c-98cf-6fc7b4980cbd",
-            "name": "madison fortin"
-        },
-        "organizations": [
-            {
-                "id": "10dde548-343d-11e9-b210-d663bd873d93",
-                "name": "tinder"
-            },
-            {
-                "id": "10ddd472-343d-11e9-b210-d663bd873d93",
-                "name": "DAILY BURN"
-            },
-            {
-                "id": "10dde412-343d-11e9-b210-d663bd873d93",
-                "name": "PlentyOfFish"
-            }
-        ]
-    },
-    {
-        "id": "b3960d9b-7604-44c8-85a4-273cadedc3ee",
-        "name": "murat bakırcıoğlu",
-        "email": "murat.bakırcıoğlu@example.com",
-        "role": null,
-        "status": "enabled",
-        "created_on": "2019-01-23T10:19:18+0000",
-        "created_by": {
-            "id": "b40b32ca-3693-4f4c-98cf-6fc7b4980cbd",
-            "name": "madison fortin"
-        },
-        "modified_on": "2019-01-29T10:14:28+0000",
-        "modified_by": {
-            "id": "b40b32ca-3693-4f4c-98cf-6fc7b4980cbd",
-            "name": "madison fortin"
-        },
-        "organizations": [
-            {
-                "id": "10ddd972-343d-11e9-b210-d663bd873d93",
-                "name": "Agies list"
-            },
-            {
-                "id": "10ddd7f6-343d-11e9-b210-d663bd873d93",
-                "name": "vimeo"
-            }
-        ]
-    },
-    {
-        "id": "73a9e699-962d-4fad-b40d-46abc1719fcb",
-        "name": "kamile forberg",
-        "email": "kamile.forberg@example.com",
-        "role": null,
-        "status": "enabled",
-        "created_on": "2019-01-22T08:25:09+0000",
-        "created_by": {
-            "id": "393a9197-4134-475c-a5f6-f52330d914fb",
-            "name": "erkan meinke"
-        },
-        "modified_on": "2019-01-25T08:29:45+0000",
-        "modified_by": {
-            "id": "393a9197-4134-475c-a5f6-f52330d914fb",
-            "name": "erkan meinke"
-        },
-        "organizations": [
-            {
-                "id": "10dde19c-343d-11e9-b210-d663bd873d93",
-                "name": "Match"
-            },
-            {
-                "id": "10ddd972-343d-11e9-b210-d663bd873d93",
-                "name": "Agies list"
-            },
-            {
-                "id": "10dde2d2-343d-11e9-b210-d663bd873d93",
-                "name": "okupid"
-            }
-        ]
-    },
-    {
-        "id": "d8661ad9-3d0f-46bb-8234-61f432f74224",
-        "name": "simon lefevre",
-        "email": "simon.lefevre@example.com",
-        "role": null,
-        "status": "enabled",
-        "created_on": "2019-01-21T11:26:20+0000",
-        "created_by": {
-            "id": "8bdc0b9f-cfb6-4929-8849-46c5a843e0be",
-            "name": "laura prieto"
-        },
-        "modified_on": "2019-01-26T11:34:28+0000",
-        "modified_by": {
-            "id": "8bdc0b9f-cfb6-4929-8849-46c5a843e0be",
-            "name": "laura prieto"
-        },
-        "organizations": [
-            {
-                "id": "10dde05c-343d-11e9-b210-d663bd873d93",
-                "name": "HomeStars"
-            },
-            {
-                "id": "10dde412-343d-11e9-b210-d663bd873d93",
-                "name": "PlentyOfFish"
-            },
-            {
-                "id": "10dddf1c-343d-11e9-b210-d663bd873d93",
-                "name": "HomeAdvisor"
-            },
-            {
-                "id": "10ddddaa-343d-11e9-b210-d663bd873d93",
-                "name": "Handy"
-            }
-        ]
-    },
-    {
-        "id": "e621376b-84c2-420c-a145-33551c7c6b83",
-        "name": "teja karoliussen",
-        "email": "teja.karoliussen@example.com",
-        "role": null,
-        "status": "enabled",
-        "created_on": "2019-01-20T07:18:42+0000",
-        "created_by": {
-            "id": "0eb53000-1fae-4329-8b71-ebc068147a96",
-            "name": "amanda vetter"
-        },
-        "modified_on": "2019-01-28T07:13:49+0000",
-        "modified_by": {
-            "id": "0eb53000-1fae-4329-8b71-ebc068147a96",
-            "name": "amanda vetter"
-        },
-        "organizations": [
-            {
-                "id": "4e80693a-344b-11e9-b210-d663bd873d93",
-                "name": "LifeWire"
-            },
-            {
-                "id": "4e806a66-344b-11e9-b210-d663bd873d93",
-                "name": "MYDOMAINE"
-            },
-            {
-                "id": "89ad3268-344b-11e9-b210-d663bd873d93",
-                "name": "the balance"
-            },
-            {
-                "id": "89ad351a-344b-11e9-b210-d663bd873d93",
-                "name": "tripsavy"
-            }
-        ]
+        "id": "1",
+        "firstname": "delphine",
+        "lastname": "park",
+        "email": "delphine.park@example.com",
+        "role": "Admin",
+        "status": "Active",
+        "created_on": "2019-01-28T14:17:36+0000",
+        "phone_no": "+91 124567892",
+        "company_name": "CES",
+        "state": "United States",
+        "city": "Philadelphia",
+        "zipcode": "19099",
+        "address": "1528 Walnut St 22nd Floor, Philadelphia, PA 19102, USA"
     }
 ]

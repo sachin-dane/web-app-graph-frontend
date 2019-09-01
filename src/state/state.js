@@ -26,6 +26,12 @@ const initialState = {
             isError: false,
             data: []
         }
+    },
+    userList: {
+        userListData: {
+            isLoading: false,
+            userList: []
+        }
     }
 };
 
