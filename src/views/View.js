@@ -12,34 +12,38 @@ import SignIn from './pages/HomePage/SignIn'
 import SignUp from './pages/HomePage/SignUp'
 import userAbilities from '../helpers/userAbilities';
 import DashboardContainer from './pages/Dashboard/DashboardContainer';
+import Sites from './pages/AdminDashboard/Sites'
+import UserList from './pages/AdminDashboard/UserList'
+import Profile from './pages/Dashboard/Profile'
 
 const routes = [
     {
         component: DashboardContainer,
-        path: '/dashboard/security-posture',
-        exact: true
-    }
-    // {
-    //     component: Incidents,
-    //     path: '/alerts'
-    // },
-    // {
-    //     component: AnalyzeContainer,
-    //     path: '/analyze'
-    // },
-    // {
-    //     component: ThreatIntelContainer,
-    //     path: '/threat-intel',
-    //     exact: true,
-    //     operation: 'view',
-    //     resource: 'configure'
-    // },
-    // {
-    //     component: ConfigureContainer,
-    //     path: '/configure',
-    //     operation: 'view',
-    //     resource: 'configure'
-    // }
+        path: '/user/dashboard',
+        exact: true,
+        operation: 'view',
+        resource: 'dashboard'
+    },
+    {
+        component: UserList,
+        path: '/admin/users',
+        exact: true,
+        operation: 'view',
+        resource: 'users'
+    },
+    {
+        component: Sites,
+        path: '/admin/sites',
+        operation: 'view',
+        resource: 'sites'
+    },
+    {
+        component: Profile,
+        path: '/user/profile',
+        exact: true,
+        operation: 'view',
+        resource: 'profile'
+    },
 ];
 
 const nonLoginRoutes = [
@@ -60,7 +64,7 @@ class View extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            authenticated: false,
+            authenticated: true,
             keycloak: null
         };
     }
@@ -73,12 +77,14 @@ class View extends React.Component {
      * Check if the operation is allowed for the resource
      */
     hasPermission = (operation, resource, user) => {
+        console.log('user==>>>', user)
         const permission = userAbilities(user).can(operation, resource);
         return permission;
     };
 
     generateRoutes = user => {
         /* eslint-disable consistent-return, array-callback-return */
+        console.log('generateRoutes props ==>>', user, user === 'Admin')
         return (
             <Switch>
                 {routes.map(route => {
@@ -114,7 +120,7 @@ class View extends React.Component {
                         );
                     }
                 })}
-                <Redirect exact from="/" to="/dashboard/security-posture" />
+                <Redirect exact to={user === 'Admin' ? '/admin/users' : '/user/dashboard'} />
                 <Redirect to="/page-not-found" />
             </Switch>
         );
@@ -152,8 +158,7 @@ class View extends React.Component {
                 <Header />
                 {this.state.authenticated ? (
                     <>
-
-                        {this.generateRoutes(this.props.user)}
+                        {this.generateRoutes(this.props.loginData.userData.userType)}
                         <ToastContainer
                             position="top-center"
                             autoClose={3000}
@@ -168,7 +173,7 @@ class View extends React.Component {
 
                     </>
                 ) : (
-                        this.nonLoginGenerateRoutes(this.props.user)
+                        this.nonLoginGenerateRoutes('User')
                         // <div className="page-loader">
                         //     <span />
                         //     <i />
@@ -182,7 +187,7 @@ class View extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        user: state.app.user
+        loginData: state.login.loginData
     };
 };
 

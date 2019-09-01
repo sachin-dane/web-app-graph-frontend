@@ -13,7 +13,11 @@ const initialState = {
         loginData: {
             isLoading: false,
             isError: false,
-            data: []
+            data: [],
+            userData: {
+                userType: 'Admin',
+                // userType: 'User'
+            },
         }
     },
     signup: {

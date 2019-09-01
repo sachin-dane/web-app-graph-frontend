@@ -19,7 +19,10 @@ const loginReducer = (state = {}, action) => {
             return {
                 ...state,
                 isLoading: false,
-                ...action.payload
+                userData: {
+                    userType: 'Admin',
+                    // userType: 'User'
+                },
             };
 
         case LOGIN_FAILURE:

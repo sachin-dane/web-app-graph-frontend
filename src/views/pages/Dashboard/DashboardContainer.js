@@ -34,7 +34,9 @@ class DashboardContainer extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return {};
+    return {
+        loginData: state.login.loginData
+    };
 };
 
 const mapDispatchToProps = dispatch => {
