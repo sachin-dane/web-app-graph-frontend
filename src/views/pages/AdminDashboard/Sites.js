@@ -8,14 +8,32 @@ import Sidebar from '../../ui/Sidebar'
 import Footer from '../../ui/Footer'
 import { fetchSitesListRequest } from '../../../state/actions/siteListActions'
 import NoRecordFound from '../../ui/NoRecordFound'
-
+import ModalComponent from '../../ui/ModalComponent'
 class Sites extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            showModal: false,
+            modalBody: "",
+            title: "",
+            currentObject: {}
+        };
         this.props.fetchSitesListRequest()
     }
-
+    userRowClick = (e, item) => {
+        e.preventDefault();
+        let obj = {
+            site_name: item.site_name,
+            status: item.status
+        }
+        this.modleToggleHandler(true, obj)
+    }
+    modleToggleHandler = (status, body) => {
+        this.setState(Object.assign({}, this.state, {
+            showModal: status,
+            modalBody: body
+        }))
+    }
     render() {
         console.log("Site List props==>>>", this.props)
         return (
@@ -49,7 +67,7 @@ class Sites extends React.Component {
                                             <tbody>
                                                 {this.props.siteListData.siteList.map((item, index) => {
                                                     return (
-                                                        <tr key={`tablelist${index + 1}`}>
+                                                        <tr key={`tablelist${index + 1}`} style={{ cursor: "pointer" }} onClick={(e) => this.userRowClick(e, item)}>
                                                             <td>{item.site_name}</td>
                                                             <td>{item.status}</td>
                                                         </tr>
@@ -100,6 +118,11 @@ class Sites extends React.Component {
                                     // )
                                 }
                             </div>
+                            <ModalComponent showModal={this.state.showModal}
+                                modalBody={this.state.modalBody}
+                                onCloseHandler={this.modleToggleHandler}
+                                title="Hang On"
+                            />
                         </div>
                     </div>
                 </main>
