@@ -15,8 +15,8 @@ const initialState = {
             isError: false,
             data: [],
             userData: {
-                userType: 'Admin',
-                // userType: 'User'
+                // userType: 'Admin',
+                userType: 'User'
             },
         }
     },

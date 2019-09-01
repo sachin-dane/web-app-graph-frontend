@@ -1,30 +1,104 @@
 /* eslint-disable no-console */
 import React from 'react';
 import { connect } from 'react-redux';
-import { find } from 'lodash';
-import moment from 'moment';
-import Header from '../../ui/Header'
+import Select from 'react-select';
 import Sidebar from '../../ui/Sidebar'
-import Footer from '../../ui/Footer'
+
 class DashboardContainer extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            activeSitesList: [
+                { value: '1', label: 'Natural Gas' },
+                { value: '2', label: 'Emergin Technologies' },
+                { value: '3', label: 'Power Generation' },
+            ],
+            proposedSitesList: [
+                { value: '1', label: 'Retail Energy' },
+                { value: '2', label: 'IT Industry' },
+            ],
+            inactiveSitesList: [
+                { value: '1', label: 'Construction' },
+                { value: '2', label: 'Hospital' },
+            ]
+        };
     }
-
+    updateSelectItemList = field => items => {
+        this.setState({
+            [field]: items,
+            loaded: true
+        });
+    };
     render() {
+        console.log('User Dashboard state==>>', this.state)
         return (
             <div>
 
                 <main>
                     <Sidebar />
                     <section>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa tempore hic provident praesentium possimus nostrum! Fucontent Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa tempore hic provident praesentium possimus nostrum! Fugit doloremque deleniti, animi numquam labore laudantium aut eaque dolor eum, nam dolorum. Possimus, qui!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores magni at sit provident quae iure numquam, consectetur blanditiis sunt, facere ratione unde i Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, fuga eos! Excepturi obcaecati facilis incidunt fugit quasi, hic rem voluptate et quidem soluta amet nostrum molestias, vero eligendi ipsam accusamus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique possimus cupiditate ipsa, blanditiis unde facere aspernatur odio natus in accusantium cum debitis sint veniam impedit ullam ea odit dignissimos tempore.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores sint eligendi doloremque accusantium itaque, odio fugit. Tempore repellat at sapiente praesentium, distinctio voluptates nesciunt vitae incidunt corporis nostrum, accusantium quo!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur quo dicta quaerat soluta repellat deleniti ipsum non corrupti repudiandae. Architecto illum saepe delectus, fugiat sed corporis repudiandae quo dolor optio?
-                        </p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa tempore hic provident praesentium possimus nostrum! Fucontent Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa tempore hic provident praesentium possimus nostrum! Fugit doloremque deleniti, animi numquam labore laudantium aut eaque dolor eum, nam dolorum. Possimus, qui!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores magni at sit provident quae iure numquam, consectetur blanditiis sunt, facere ratione unde i Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, fuga eos! Excepturi obcaecati facilis incidunt fugit quasi, hic rem voluptate et quidem soluta amet nostrum molestias, vero eligendi ipsam accusamus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique possimus cupiditate ipsa, blanditiis unde facere aspernatur odio natus in accusantium cum debitis sint veniam impedit ullam ea odit dignissimos tempore.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores sint eligendi doloremque accusantium itaque, odio fugit. Tempore repellat at sapiente praesentium, distinctio voluptates nesciunt vitae incidunt corporis nostrum, accusantium quo!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur quo dicta quaerat soluta repellat deleniti ipsum non corrupti repudiandae. Architecto illum saepe delectus, fugiat sed corporis repudiandae quo dolor optio?
-                        </p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa tempore hic provident praesentium possimus nostrum! Fucontent Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa tempore hic provident praesentium possimus nostrum! Fugit doloremque deleniti, animi numquam labore laudantium aut eaque dolor eum, nam dolorum. Possimus, qui!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores magni at sit provident quae iure numquam, consectetur blanditiis sunt, facere ratione unde i Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, fuga eos! Excepturi obcaecati facilis incidunt fugit quasi, hic rem voluptate et quidem soluta amet nostrum molestias, vero eligendi ipsam accusamus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique possimus
-                    </p>
+                        <div className="sites-tabs">
+                            <div className="row justify-content-center">
+                                <div className="col-sm-4">
+                                    <div>
+                                        <h3>Active Sitess </h3>
+                                    </div>
+                                    <div>
+                                        <Select
+                                            value={this.state.activeSites}
+                                            onChange={this.updateSelectItemList(
+                                                'activeSites'
+                                            )}
+                                            options={this.state.activeSitesList}
+                                            className="multi-select"
+                                            classNamePrefix="multi-select"
+                                            isSearchable={false}
+                                            placeholder="Select Active Site"
+                                        />
+                                    </div>
+
+                                </div>
+                                <div className="col-sm-4">
+                                    <div>
+                                        <h3>Proposed Sites</h3>
+                                    </div>
+                                    <div>
+                                        <Select
+                                            value={this.state.proposedSites}
+                                            onChange={this.updateSelectItemList(
+                                                'proposedSites'
+                                            )}
+                                            options={this.state.proposedSitesList}
+                                            className="multi-select"
+                                            classNamePrefix="multi-select"
+                                            isSearchable={false}
+                                            placeholder="Select Proposed Site"
+                                        />
+                                    </div>
+
+                                </div>
+                                <div className="col-sm-4">
+                                    <div>
+                                        <h3>Inactive Sites</h3>
+                                    </div>
+                                    <div>
+                                        <Select
+                                            value={this.state.inactiveSites}
+                                            onChange={this.updateSelectItemList(
+                                                'inactiveSites'
+                                            )}
+                                            options={this.state.inactiveSitesList}
+                                            className="multi-select"
+                                            classNamePrefix="multi-select"
+                                            isSearchable={false}
+                                            placeholder="Select Inactive Site"
+                                        />
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
                     </section>
                 </main>
 
