@@ -5,13 +5,11 @@ import React from 'react';
 const Header = () => {
     return (
         <header>
-            <nav>
+            <nav className='header-ul'>
                 <ul>
-                    <li><a href="#">{'{'} LOGO {'}'}</a></li>
-                    <li><a href="#">page 1</a></li>
-                    <li><a href="#">page 2</a></li>
-                    <li><a href="#">page 3</a></li>
-                    <li><a href="#">page 4</a></li>
+
+                    <li><a href="#">Logo</a></li>
+
                 </ul>
             </nav>
         </header>

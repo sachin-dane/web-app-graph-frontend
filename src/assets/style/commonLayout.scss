@@ -158,14 +158,20 @@
     flex: 1;
   }
   
-  
-  
+
+  aside nav ul li {
+    padding-bottom: 10px
+  }  
+
   aside ul {
     flex: 1;/* occupe toute la place restante */
-    display: flex;
     flex-flow: column wrap;
   }
   
+  .header-ul ul{
+    margin-bottom: 0px
+  }
+
   aside li {
     flex: 1; 
     display: flex;
