@@ -6,6 +6,7 @@ import { Can } from '@casl/react';
 import userAbilities from '../../helpers/userAbilities'
 import { find } from 'lodash';
 import moment from 'moment';
+import { returnRole } from '../../constants/common'
 
 class Sidebar extends React.Component {
     constructor(props) {
@@ -23,7 +24,7 @@ class Sidebar extends React.Component {
                         <Can
                             I="view"
                             a="dashboard"
-                            ability={userAbilities(this.props.loginData.userData.userType)}
+                            ability={userAbilities(returnRole(this.props.loginData.userData.user_role))}
                         >
                             <li className="nav-item">
                                 <NavLink
@@ -40,7 +41,7 @@ class Sidebar extends React.Component {
                         <Can
                             I="view"
                             a="profile"
-                            ability={userAbilities(this.props.loginData.userData.userType)}
+                            ability={userAbilities(returnRole(this.props.loginData.userData.user_role))}
                         >
                             <li className="nav-item">
                                 <NavLink
@@ -57,7 +58,7 @@ class Sidebar extends React.Component {
                         <Can
                             I="view"
                             a="users"
-                            ability={userAbilities(this.props.loginData.userData.userType)}
+                            ability={userAbilities(returnRole(this.props.loginData.userData.user_role))}
                         >
                             <li className="nav-item">
                                 <NavLink
@@ -74,7 +75,7 @@ class Sidebar extends React.Component {
                         <Can
                             I="view"
                             a="sites"
-                            ability={userAbilities(this.props.loginData.userData.userType)}
+                            ability={userAbilities(returnRole(this.props.loginData.userData.user_role))}
                         >
                             <li className="nav-item">
                                 <NavLink
@@ -88,7 +89,7 @@ class Sidebar extends React.Component {
                                 </NavLink>
                             </li>
                         </Can>
-                        <li className="nav-item"><a className="nav-link"href="#">Logout</a></li>
+                        <li className="nav-item"><a className="nav-link" href="#">Logout</a></li>
                         {/* <li><a href="/user/dashboard">Dashboard</a></li>
                         <li><a href="#">page 2</a></li>
                         <li><a href="#">page 3</a></li>

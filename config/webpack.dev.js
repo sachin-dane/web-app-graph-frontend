@@ -34,8 +34,5 @@ module.exports = {
   devServer,
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    // new Jarvis({
-    //   port: 1337
-    // })
   ]
 };

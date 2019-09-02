@@ -1,4 +1,4 @@
-
+import { toast } from 'react-toastify';
 import {
     LOGIN_REQUESTED,
     LOGIN_SUCCESSFULL,
@@ -20,6 +20,8 @@ export const loginSuccessfull = data => {
 };
 
 export const loginFailure = data => {
+    console.log('login reducer data==>>', data)
+    toast.error(`${data.message}`);
     return {
         type: LOGIN_FAILURE,
         payload: data

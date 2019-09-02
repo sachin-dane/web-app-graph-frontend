@@ -8,27 +8,28 @@ import {
 
 
 const loginReducer = (state = {}, action) => {
+    console.log('Login reducer==>>', action.payload)
     switch (action.type) {
         case LOGIN_REQUESTED:
             return {
                 ...state,
-                isLoading: true
+                isLoading: true,
+                isLoggedIn: false
             };
 
         case LOGIN_SUCCESSFULL:
             return {
                 ...state,
                 isLoading: false,
-                userData: {
-                    userType: 'Admin',
-                    // userType: 'User'
-                },
+                isLoggedIn: true,
+                userData: action.payload[0]
             };
 
         case LOGIN_FAILURE:
             return {
                 ...state,
                 isLoading: false,
+                isLoggedIn: false,
                 ...action.payload
             };
 

@@ -8,6 +8,7 @@ import {
 
 
 const userListReducer = (state = {}, action) => {
+    console.log('user list reducer ==>>', action.payload)
     switch (action.type) {
         case FETCH_USER_LIST_REQUESTED:
             return {
@@ -20,7 +21,7 @@ const userListReducer = (state = {}, action) => {
             return {
                 ...state,
                 isLoading: false,
-                userList: users
+                userList: action.payload
             };
 
         case FETCH_USER_LIST_FAILURE:

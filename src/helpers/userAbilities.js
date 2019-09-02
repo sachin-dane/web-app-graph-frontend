@@ -9,7 +9,7 @@ const defineAbilitiesFor = user => {
             can('view', 'users');
             can('view', 'sites');
 
-        } else if (user === 'User') {
+        } else if (user === 'Developer' || user === 'Reviewer') {
             can('view', 'dashboard');
             can('view', 'profile');
             cannot('view', 'users');

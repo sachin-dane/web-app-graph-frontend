@@ -1,12 +1,4 @@
 import axios from 'axios';
-// import KeycloakFactory from '../helpers/KeycloakFactory';
-
-// const { keycloak } = KeycloakFactory;
-
-// const handleLogout = () => {
-//     localStorage.clear();
-//     keycloak.logout();
-// };
 
 const ErrorResponse = {
     data: {
@@ -23,6 +15,13 @@ class ApiUtils {
     constructor(baseUrl, defaultTimeout) {
         this.baseUrl = baseUrl;
         this.defaultTimeout = defaultTimeout;
+        this.request = axios.create({
+            baseURL: this.baseUrl,
+            // headers: {
+            //     Authorization: `Bearer ${token}`,
+            //     'Content-Type': 'application/json'
+            // }
+        });
     }
 
     /**
@@ -30,36 +29,36 @@ class ApiUtils {
      * @param {String} - The users access token
      * @param {Number} requestTimeout -  Request will wait 30 seconds before timing out
      */
-    setUserInformation = token => {
-        // Create a configured axios instance
-        this.request = axios.create({
-            baseURL: this.baseUrl,
-            headers: {
-                Authorization: `Bearer ${token}`,
-                'Content-Type': 'application/json'
-            }
-        });
-        this.request.defaults.timeout = this.defaultTimeout;
-        this.request.interceptors.response.use(
-            response => {
-                return response;
-            },
-            error => {
-                if ('code' in error && error.code === 'ECONNABORTED') {
-                    ErrorResponse.data.message =
-                        'Request timeout, Please try again';
-                    throw ErrorResponse;
-                } else if (error.message === 'Network Error') {
-                    ErrorResponse.data.message = error.message;
-                    throw ErrorResponse;
-                    // } else if (error.response.status === 401) {
-                    //     handleLogout();
-                } else {
-                    throw error;
-                }
-            }
-        );
-    };
+    // setUserInformation = token => {
+    //     // Create a configured axios instance
+    //     this.request = axios.create({
+    //         baseURL: this.baseUrl,
+    //         // headers: {
+    //         //     Authorization: `Bearer ${token}`,
+    //         //     'Content-Type': 'application/json'
+    //         // }
+    //     });
+    //     this.request.defaults.timeout = this.defaultTimeout;
+    //     this.request.interceptors.response.use(
+    //         response => {
+    //             return response;
+    //         },
+    //         error => {
+    //             if ('code' in error && error.code === 'ECONNABORTED') {
+    //                 ErrorResponse.data.message =
+    //                     'Request timeout, Please try again';
+    //                 throw ErrorResponse;
+    //             } else if (error.message === 'Network Error') {
+    //                 ErrorResponse.data.message = error.message;
+    //                 throw ErrorResponse;
+    //                 // } else if (error.response.status === 401) {
+    //                 //     handleLogout();
+    //             } else {
+    //                 throw error;
+    //             }
+    //         }
+    //     );
+    // };
 
     /**
      * The function converts a Object to a query string
@@ -138,15 +137,18 @@ class ApiUtils {
      * @param {Number} requestTimeout -  Request will wait 5 min before timing out
      */
     post = async (url, body, requestTimeout = this.defaultTimeout) => {
+        console.log('====>>>', url, body)
         let response = null;
         try {
             response = await this.request.post(url, body, {
                 timeout: requestTimeout
             });
+            console.log('API response ==>>', response)
             return response;
         } catch (ex) {
-            if (ex.response && ex.response.data && ex.response.data.message) {
-                throw ex.response;
+            console.log('API ex ==>>', ex.response)
+            if (ex.response && ex.response.data) {
+                return ex.response;
             } else {
                 // if error response not defined
                 // ErrorResponse.data.statusCode = ex.response.status

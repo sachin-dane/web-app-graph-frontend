@@ -15,6 +15,7 @@ import DashboardContainer from './pages/Dashboard/DashboardContainer';
 import Sites from './pages/AdminDashboard/Sites'
 import UserList from './pages/AdminDashboard/UserList'
 import Profile from './pages/Dashboard/Profile'
+import { returnRole } from '../constants/common'
 
 const routes = [
     {
@@ -64,14 +65,19 @@ class View extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            authenticated: true,
+            authenticated: false,
             keycloak: null
         };
     }
 
-    handelLogout = () => {
-        this.state.keycloak.logout();
-    };
+    componentWillReceiveProps(nextProps) {
+        console.log('nextProps==>>', nextProps)
+        if (Object.keys(nextProps.loginData.userData).length && nextProps.loginData.isLoggedIn) {
+            this.setState({
+                authenticated: true
+            })
+        }
+    }
 
     /**
      * Check if the operation is allowed for the resource
@@ -82,8 +88,10 @@ class View extends React.Component {
         return permission;
     };
 
-    generateRoutes = user => {
+    generateRoutes = role => {
+        let user = returnRole(role)
         /* eslint-disable consistent-return, array-callback-return */
+
         console.log('generateRoutes props ==>>', user, user === 'Admin')
         return (
             <Switch>
@@ -126,8 +134,9 @@ class View extends React.Component {
         );
     };
 
-    nonLoginGenerateRoutes = user => {
+    nonLoginGenerateRoutes = role => {
         console.log('This props ==>>', this.props)
+        let user = returnRole(role)
         /* eslint-disable consistent-return, array-callback-return */
         return (
             <Switch>
@@ -158,22 +167,20 @@ class View extends React.Component {
                 <Header />
                 {this.state.authenticated ? (
                     <>
-                        {this.generateRoutes(this.props.loginData.userData.userType)}
+                        {this.generateRoutes(this.props.loginData.userData.user_role)}
                         <ToastContainer
                             position="top-center"
-                            autoClose={3000}
-                            hideProgressBar={false}
-                            newestOnTop={false}
-                            closeButton={false}
-                            rtl={false}
+                            autoClose={false}
+                            newestOnTop
+                            closeOnClick
+                            rtl
                             pauseOnVisibilityChange
                             draggable
-                            pauseOnHover
                         />
 
                     </>
                 ) : (
-                        this.nonLoginGenerateRoutes('User')
+                        this.nonLoginGenerateRoutes(this.props.loginData.userData.user_role)
                         // <div className="page-loader">
                         //     <span />
                         //     <i />

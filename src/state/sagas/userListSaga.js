@@ -20,7 +20,7 @@ export function* fetchUserListRequest(action) {
     console.log('userListSaga response==>> ', response)
     if (response) {
 
-        yield put(fetchUserListSuccessful());
+        yield put(fetchUserListSuccessful(response.data.data));
     } else {
         console.log('userListSaga response==>> elseeee')
         yield put(fetchUserListFailue());
