@@ -14,6 +14,11 @@ class Sidebar extends React.Component {
         this.state = {};
     }
 
+    onLogoutClick = () => {
+        localStorage.clear()
+        this.props.history.push("/");
+    }
+
     render() {
         console.log('Login Sidebar Data==>>', this.props)
         return (
@@ -89,7 +94,7 @@ class Sidebar extends React.Component {
                                 </NavLink>
                             </li>
                         </Can>
-                        <li className="nav-item"><a className="nav-link" href="#">Logout</a></li>
+                        <li className="nav-item"><a className="nav-link" href="#" onClick={(e) => this.onLogoutClick(e)}>Logout</a></li>
                         {/* <li><a href="/user/dashboard">Dashboard</a></li>
                         <li><a href="#">page 2</a></li>
                         <li><a href="#">page 3</a></li>

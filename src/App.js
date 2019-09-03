@@ -20,7 +20,7 @@ class App extends React.Component {
         return (
             <>
                 <Switch>
-                    <Route path="/page-not-found" component={PageNotFound} />
+                    {/* <Route path="/page-not-found" component={PageNotFound} /> */}
                     <Route path="/" component={View} />
                 </Switch>
             </>

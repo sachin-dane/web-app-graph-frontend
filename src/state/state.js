@@ -14,17 +14,15 @@ const initialState = {
             isLoading: false,
             isError: false,
             data: [],
-            userData: {
-                // userType: 'Admin',
-                userType: 'User'
-            },
+            userData: {},
         }
     },
     signup: {
         signupData: {
             isLoading: false,
             isError: false,
-            data: []
+            data: [],
+            isSignupSuccessful: false
         }
     },
     userList: {

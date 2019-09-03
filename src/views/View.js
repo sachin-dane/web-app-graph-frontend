@@ -4,8 +4,8 @@ import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
-import { ToastContainer } from 'react-toastify';
-
+import { ToastContainer, toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import Header from './ui/Header'
 import Footer from './ui/Footer'
 import SignIn from './pages/HomePage/SignIn'
@@ -16,6 +16,8 @@ import Sites from './pages/AdminDashboard/Sites'
 import UserList from './pages/AdminDashboard/UserList'
 import Profile from './pages/Dashboard/Profile'
 import { returnRole } from '../constants/common'
+import { loginSuccessfull } from '../state/actions/loginActions'
+import PageNotFound from './ui/PageNotFound';
 
 const routes = [
     {
@@ -45,6 +47,11 @@ const routes = [
         operation: 'view',
         resource: 'profile'
     },
+    {
+        component: PageNotFound,
+        path: 'page-not-found',
+        exact: true,
+    },
 ];
 
 const nonLoginRoutes = [
@@ -66,8 +73,13 @@ class View extends React.Component {
         super(props);
         this.state = {
             authenticated: false,
-            keycloak: null
         };
+
+
+    }
+
+    componentDidMount() {
+        this.checkLogin()
     }
 
     componentWillReceiveProps(nextProps) {
@@ -76,6 +88,16 @@ class View extends React.Component {
             this.setState({
                 authenticated: true
             })
+        }
+    }
+
+    checkLogin = () => {
+        let isLogin = localStorage.getItem("isLoggedIn")
+        console.log('isLogin==>>', isLogin)
+        if (isLogin) {
+            console.log('inside isLogin==>>', isLogin)
+            let userDetail = JSON.parse(localStorage.getItem('userDetails'))
+            this.props.loginSuccessfull([userDetail])
         }
     }
 
@@ -128,7 +150,7 @@ class View extends React.Component {
                         );
                     }
                 })}
-                <Redirect exact to={user === 'Admin' ? '/admin/users' : '/user/dashboard'} />
+                <Redirect to={user === 'Admin' ? '/admin/users' : '/user/dashboard'} />
                 <Redirect to="/page-not-found" />
             </Switch>
         );
@@ -170,17 +192,32 @@ class View extends React.Component {
                         {this.generateRoutes(this.props.loginData.userData.user_role)}
                         <ToastContainer
                             position="top-center"
-                            autoClose={false}
-                            newestOnTop
-                            closeOnClick
-                            rtl
+                            autoClose={5000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeButton={false}
+                            rtl={false}
                             pauseOnVisibilityChange
                             draggable
+                            pauseOnHover
                         />
 
                     </>
                 ) : (
-                        this.nonLoginGenerateRoutes(this.props.loginData.userData.user_role)
+                        <>
+                            {this.nonLoginGenerateRoutes(this.props.loginData.userData.user_role)}
+                            <ToastContainer
+                                position="top-center"
+                                autoClose={5000}
+                                hideProgressBar={false}
+                                newestOnTop={false}
+                                closeButton={false}
+                                rtl={false}
+                                pauseOnVisibilityChange
+                                draggable
+                                pauseOnHover
+                            />
+                        </>
                         // <div className="page-loader">
                         //     <span />
                         //     <i />
@@ -201,7 +238,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         // loginRequest: () => dispatch(loginRequested()),
-        // loginSuccessfull: userData => dispatch(loginSuccessfull(userData)),
+        loginSuccessfull: data => dispatch(loginSuccessfull(data)),
         // loginFailed: error => dispatch(loginFailure(error))
     };
 };

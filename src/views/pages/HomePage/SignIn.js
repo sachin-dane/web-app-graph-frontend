@@ -39,7 +39,7 @@ class SignIn extends React.Component {
         console.log('State==>>', this.state)
         return (
             <div>
-                <form className='sign-form'>
+                <form className='sign-form container'>
                     <div className="row justify-content-center">
                         <div className="col-sm-6">
                             <input type="text"
@@ -57,9 +57,7 @@ class SignIn extends React.Component {
                                     ['required']
                                 )}
                             </span>
-                            {/* <small id="passwordHelpBlock" class="form-text text-muted">
-                                Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-                            </small> */}
+
                         </div>
                     </div>
                     <div className="row justify-content-center">
@@ -84,20 +82,17 @@ class SignIn extends React.Component {
 
                     <div className="row justify-content-center">
 
-                        <div className="col-sm-3">
+                        <div className="col-sm-4 col-sm-push-4">
                             <p>New User? <Link to={'/signup'}>Sign Up</Link></p>
                         </div>
-                        <div className="col-sm-3">
+                        <div className="col-sm-3 col-sm-pull-4">
                             <button type="submit"
-                                class="btn btn-block btn-primary"
+                                class="btn btn-primary "
                                 onClick={(e) => this.onSignInClick(e)}
                             >Sign in</button>
+                            <p>Forgot Password </p>
                         </div>
                     </div>
-                    <div className="row justify-content-center">
-                        <p>Forgot Password </p>
-                    </div>
-
                 </form>
             </div >
         );

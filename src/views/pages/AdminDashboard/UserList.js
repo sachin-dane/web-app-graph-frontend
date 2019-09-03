@@ -6,9 +6,10 @@ import moment from 'moment';
 import Header from '../../ui/Header'
 import Sidebar from '../../ui/Sidebar'
 import Footer from '../../ui/Footer'
-import { fetchUserListRequest } from '../../../state/actions/userListActions'
+import { fetchUserListRequest, activateUserRequest } from '../../../state/actions/userListActions'
 import NoRecordFound from '../../ui/NoRecordFound'
 import ModalComponent from '../../ui/ModalComponent'
+
 class UserList extends React.Component {
     constructor(props) {
         super(props);
@@ -31,6 +32,15 @@ class UserList extends React.Component {
             modalBody: body
         }))
     }
+    activateUser = (e, id) => {
+        e.preventDefault()
+        let payload = {
+            id: id,
+            status: 1
+        }
+        this.props.activateUserRequest(payload)
+    }
+
     render() {
         console.log("User List props==>>>", this.props)
         return (
@@ -74,7 +84,10 @@ class UserList extends React.Component {
                                                             <td>{item.firstname}</td>
                                                             <td>{item.lastname}</td>
                                                             <td>{item.email}</td>
-                                                            <td>{item.status}</td>
+                                                            <td>
+                                                                {
+                                                                    item.status == 0 ? <button type="button" class="btn btn-primary btn-xs" onClick={(e) => this.activateUser(e, item.id)}>Activate</button> : 'Active User'
+                                                                }</td>
                                                         </tr>
                                                     );
                                                 })}
@@ -95,32 +108,7 @@ class UserList extends React.Component {
                         <div className="row justify-content-center">
                             <div className="col-sm-45 mt-5 pt-4">
                                 {
-                                    //     this.props.trends &&
-                                    // this.props.trends.current &&
-                                    // this.props.trends.current.data &&
-                                    // Object.keys(this.props.trends.current.data)
-                                    //     .length > 0
-                                    //     ? (
-                                    // <HorizontalBar
-                                    //     data={this.threadData()}
-                                    //     width={270}
-                                    //     orientation="right"
-                                    //     config={VERTICAL_BAR[0]}
-                                    //     show="topThreatInEsoc"
-                                    //     style={threadStyle}
-                                    //     yAxisKey="name"
-                                    //     barDataKey="threat"
-                                    //     yAxisWidth={120}
-                                    //     clickHandler={this.topThreadHandler}
-                                    // />
-                                    // ) : (
-                                    // <NoRecordFound
-                                    //     isloading={
-                                    //         this.props.trends.isLoading
-                                    //     }
-                                    //     loadingSizeCLass="sm-loading-block"
-                                    // />
-                                    // )
+
                                 }
                             </div>
                         </div>
@@ -146,6 +134,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchUserListRequest: data => dispatch(fetchUserListRequest(data)),
+        activateUserRequest: data => dispatch(activateUserRequest(data)),
+
+
     };
 };
 

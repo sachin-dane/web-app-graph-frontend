@@ -1,0 +1,31 @@
+.Toastify {
+    .Toastify__toast-container--top-center {
+        top: 0;
+    }
+    .Toastify__toast-container {
+        .Toastify__toast {
+            min-height: 56px;
+            box-shadow: 0 4px 8px #171717;
+        }
+        .Toastify__toast--success {
+            background: #22c494;
+        }
+        .Toastify__toast-body {
+            font-family: 'Open Sans', sans-serif;
+            padding: 0 1rem;
+            color: #000;
+            font-weight: 600;
+        }
+        .Toastify__close-button {
+            // background: url('#{$assetPath}/close.svg') no-repeat center center;
+            width: 1.6rem;
+            height: 1.6rem;
+            overflow: hidden;
+            text-indent: -999rem;
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
+        }
+    }
+}

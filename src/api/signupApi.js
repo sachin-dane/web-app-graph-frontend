@@ -4,7 +4,7 @@ const rootUrl = window._env_.REACT_APP_API_ROOT;
 const signupApiRequest = async data => {
     try {
         console.log('Data==>>', data)
-        const response = await ApiUtils.post(`${rootUrl}/signup`, data);
+        const response = await ApiUtils.post(`${rootUrl}/users`, data);
         console.log('response==>>', response)
         return { response };
     } catch (error) {

@@ -8,16 +8,20 @@ import {
 
 
 const loginReducer = (state = {}, action) => {
-    console.log('Login reducer==>>', action.payload)
+
     switch (action.type) {
         case LOGIN_REQUESTED:
             return {
                 ...state,
                 isLoading: true,
-                isLoggedIn: false
+                isLoggedIn: false,
+                userData:{}
             };
 
         case LOGIN_SUCCESSFULL:
+            console.log('Login reducer==>>', action.payload)
+            localStorage.setItem('isLoggedIn', true)
+            localStorage.setItem('userDetails', JSON.stringify(action.payload[0]))
             return {
                 ...state,
                 isLoading: false,
@@ -30,7 +34,8 @@ const loginReducer = (state = {}, action) => {
                 ...state,
                 isLoading: false,
                 isLoggedIn: false,
-                ...action.payload
+                ...action.payload,
+                userData:{}
             };
 
         default:

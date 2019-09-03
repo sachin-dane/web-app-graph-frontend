@@ -13,6 +13,7 @@ export const loginRequested = data => {
 };
 
 export const loginSuccessfull = data => {
+    console.log('data==>>', data)
     return {
         type: LOGIN_SUCCESSFULL,
         payload: data

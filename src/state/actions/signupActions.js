@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import {
     SIGNUP_REQUESTED,
     SIGNUP_SUCCESSFULL,
@@ -13,6 +14,8 @@ export const signupRequested = data => {
 };
 
 export const signupSuccessfull = data => {
+    toast.info(`Hello, your signup is done and will be authorised by Admin within 24 hours via mail/call. Thanks for your patience`)
+
     return {
         type: SIGNUP_SUCCESSFULL,
         payload: data

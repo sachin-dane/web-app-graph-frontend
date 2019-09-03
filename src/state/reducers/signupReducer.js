@@ -12,21 +12,24 @@ const signupReducer = (state = {}, action) => {
         case SIGNUP_REQUESTED:
             return {
                 ...state,
-                isLoading: true
+                isLoading: true,
+                isSignupSuccessful: false
             };
 
         case SIGNUP_SUCCESSFULL:
             return {
                 ...state,
                 isLoading: false,
-                ...action.payload
+                ...action.payload,
+                isSignupSuccessful: true
             };
 
         case SIGNUP_FAILURE:
             return {
                 ...state,
                 isLoading: false,
-                ...action.payload
+                ...action.payload,
+                isSignupSuccessful: true
             };
 
         default:
