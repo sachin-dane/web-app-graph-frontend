@@ -244,6 +244,7 @@
 
   .userList {
     margin:0 auto;
+    margin-top: 20px;
   }
 
   .userList{
@@ -318,4 +319,10 @@
 .profile-form{
     margin-top: 10px;
     margin-left: 450px;
+    max-width: 600px;
+    width: 100%;
+    margin: 30px auto 0;
+  .row{
+    padding-bottom: 12px;
+  }
 }

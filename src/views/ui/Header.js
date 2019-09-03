@@ -6,11 +6,7 @@ const Header = () => {
     return (
         <header>
             <nav className='header-ul'>
-                <ul>
-
-                    <li><a href="#">Logo</a></li>
-
-                </ul>
+                <h1>Logo</h1>
             </nav>
         </header>
     );

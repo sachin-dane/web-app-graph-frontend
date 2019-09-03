@@ -1,3 +1,5 @@
+
+import { toast } from 'react-toastify';
 import {
     UPDATE_PROFILE_REQUESTED,
     UPDATE_PROFILE_SUCCESSFUL,
@@ -13,6 +15,7 @@ export const updateProfileRequest = data => {
 };
 
 export const updateProfileSuccessful = data => {
+    toast.success(`Profile updated successfully.`)
     return {
         type: UPDATE_PROFILE_SUCCESSFUL,
         payload: data

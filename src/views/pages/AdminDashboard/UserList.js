@@ -59,7 +59,7 @@ class UserList extends React.Component {
                             {!this.props.userListData.isLoading &&
                                 this.props.userListData.userList &&
                                 this.props.userListData.userList.length ? (
-                                    <div className="col-sm-7">
+                                    <div className="">
                                         <table className="table table-striped">
                                             <thead>
                                                 <tr>
