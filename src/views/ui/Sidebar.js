@@ -25,7 +25,16 @@ class Sidebar extends React.Component {
             <aside>
                 <nav>
                     <ul>
-
+                        <li className="user-profile">
+                            <div className="profile-usertitle">
+                                <div className="profile-usertitle-name">
+                                    {this.props.loginData.userData.firstname}  {this.props.loginData.userData.lastname}
+                                </div>
+                                <div className="profile-usertitle-job">
+                                    {returnRole(this.props.loginData.userData.user_role)}
+                                </div>
+                            </div>
+                        </li>
                         <Can
                             I="view"
                             a="dashboard"

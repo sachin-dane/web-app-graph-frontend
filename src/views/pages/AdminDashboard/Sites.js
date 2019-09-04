@@ -49,9 +49,9 @@ class Sites extends React.Component {
                             </div>
                         </div>
                         <div className="row justify-content-center">
-                            {!this.props.siteListData.isLoading &&
-                                this.props.siteListData.siteList &&
-                                this.props.siteListData.siteList.length ? (
+                            {!this.props.siteListData.allSites.isLoading &&
+                                this.props.siteListData.allSites.siteList &&
+                                this.props.siteListData.allSites.siteList.length ? (
                                     <div className="col-sm-7">
                                         <table className="table table-striped">
                                             <thead>
@@ -65,7 +65,7 @@ class Sites extends React.Component {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {this.props.siteListData.siteList.map((item, index) => {
+                                                {this.props.siteListData.allSites.siteList.map((item, index) => {
                                                     return (
                                                         <tr key={`tablelist${index + 1}`} style={{ cursor: "pointer" }} onClick={(e) => this.userRowClick(e, item)}>
                                                             <td>{item.site_name}</td>
@@ -80,7 +80,7 @@ class Sites extends React.Component {
                                     <div class="col-sm-4">
                                         <NoRecordFound
                                             isloading={
-                                                this.props.siteListData.isLoading
+                                                this.props.siteListData.allSites.isLoading
                                             }
                                             loadingSizeCLass="sm-loading-block"
                                         />

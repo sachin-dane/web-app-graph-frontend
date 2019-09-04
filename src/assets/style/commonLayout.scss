@@ -126,10 +126,11 @@
     /*hauteur des li : 15vh + hauteur du footer 10vh = 25vh*/
   }
   
-  section {
+  .dashboard-section {
     flex: 1;
     /* occupe la hauteur restante  */
-    margin-left: 20%;
+    margin-left: 15%;
+    margin-top: 50px;
   }
   
   section p {
@@ -325,4 +326,34 @@
   .row{
     padding-bottom: 12px;
   }
+}
+
+
+.site-header{
+  width: auto;
+  height: 40px;
+  background-color: gainsboro;
+  margin: 15px 0px 0px 0px;
+  border-radius: 8px;
+}
+
+.graph-detail{
+    height: 360px;
+    background-color: gainsboro;
+    margin: 15px 0px 0px 0px;
+    border-radius: 8px;
+}
+
+.graph-bar{
+  height: 150px;
+  background-color: gainsboro;
+  margin: 15px 0px 0px 0px;
+  border-radius: 8px;
+}
+
+.site-detail{
+  height: 315px;
+  background-color: gainsboro;
+  margin: 15px 0px 0px 0px;
+  border-radius: 8px;
 }

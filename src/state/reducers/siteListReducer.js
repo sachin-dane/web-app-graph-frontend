@@ -4,6 +4,9 @@ import {
     FETCH_SITES_LIST_REQUESTED,
     FETCH_SITES_LIST_SUCCESSFULL,
     FETCH_SITES_LIST_FAILURE,
+    FETCH_USER_SITES_REQUESTED,
+    FETCH_USER_SITES_SUCCESSFUL,
+    FETCH_USER_SITES_FAILURE
 } from '../../constants/actions'
 
 
@@ -12,22 +15,56 @@ const sitesListReducer = (state = {}, action) => {
         case FETCH_SITES_LIST_REQUESTED:
             return {
                 ...state,
-                isLoading: true,
-                siteList: []
+                allSites: {
+                    isLoading: true,
+                    siteList: []
+                }
             };
 
         case FETCH_SITES_LIST_SUCCESSFULL:
             return {
                 ...state,
-                isLoading: false,
-                siteList: sites
+                allSites: {
+                    isLoading: false,
+                    siteList: sites
+                }
             };
 
         case FETCH_SITES_LIST_FAILURE:
             return {
                 ...state,
-                isLoading: false,
-                siteList: sites
+                allSites: {
+                    isLoading: false,
+                    siteList: []
+                }
+            };
+
+
+        case FETCH_USER_SITES_REQUESTED:
+            return {
+                ...state,
+                userSites: {
+                    isLoading: true,
+                    siteList: []
+                }
+            };
+
+        case FETCH_USER_SITES_SUCCESSFUL:
+            return {
+                ...state,
+                userSites: {
+                    isLoading: false,
+                    siteList: action.payload
+                }
+            };
+
+        case FETCH_USER_SITES_FAILURE:
+            return {
+                ...state,
+                userSites: {
+                    isLoading: false,
+                    siteList: []
+                }
             };
 
         default:

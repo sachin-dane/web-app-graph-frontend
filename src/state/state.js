@@ -33,9 +33,16 @@ const initialState = {
     },
     siteList: {
         sitesListData: {
-            isLoading: false,
-            siteList: []
-        }
+            allSites: {
+                isLoading: false,
+                siteList: []
+            },
+            userSites: {
+                isLoading: false,
+                siteList: []
+            }
+        },
+
     }
 };
 

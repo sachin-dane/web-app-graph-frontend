@@ -100,6 +100,7 @@
     "react-ace": "^6.4.0",
     "react-app-polyfill": "^1.0.1",
     "react-dom": "^16.7.0",
+    "react-google-charts": "^3.0.15",
     "react-paginate": "^6.3.0",
     "react-perfect-scrollbar": "^1.4.4",
     "react-redux": "^6.0.1",

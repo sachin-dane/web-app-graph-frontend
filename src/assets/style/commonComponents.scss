@@ -29,3 +29,58 @@
         }
     }
 }
+
+
+.profile-usertitle {
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 40px;
+
+  }
+  .user-profile{
+    border: 1px solid #ccc;
+    box-shadow: 0 0 15px #333;
+    margin-bottom: 20px;
+  }
+  .profile-usertitle-name {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 7px;
+  }
+  
+  .profile-usertitle-job {
+    text-transform: uppercase;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+
+//   .box {
+//     height: 150px;
+//     width: 300px;
+//     margin: 20px;
+//     border: 1px solid #ccc;
+// }
+
+// .top {
+//     box-shadow: 0 -5px 5px -5px #333;
+// }
+
+// .right {
+//     box-shadow: -5px 0 5px -5px #333;
+// }
+
+// .bottom {
+//     box-shadow: 0 5px 5px -5px #333;
+// }
+
+// .left {
+//     box-shadow: 5px 0 5px -5px #333;
+// }
+
+// .all {
+//     box-shadow: 0 0 5px #333;
+// }

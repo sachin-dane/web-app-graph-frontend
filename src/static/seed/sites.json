@@ -4,34 +4,22 @@
         "site_name": "Power Generation",
         "status": "active",
         "data_obect_1": {
-            "measurement": [
-                {
-                    "measurement": {
-                        "param1Lifetime": 17185,
-                        "param2Instantaneous": 1.0
-                    }
-                }
-            ]
+            "measurement": {
+                "param1Lifetime": 17185,
+                "param2Instantaneous": 1.0
+            }
         },
         "data_obect_2": {
-            "measurement": [
-                {
-                    "measurement": {
-                        "param1Lifetime": 17185,
-                        "param2Instantaneous": 1.0
-                    }
-                }
-            ]
+            "measurement": {
+                "param1Lifetime": 17185,
+                "param2Instantaneous": 1.0
+            }
         },
         "data_obect_3": {
-            "measurement": [
-                {
-                    "measurement": {
-                        "param1Lifetime": 17185,
-                        "param2Instantaneous": 1.0
-                    }
-                }
-            ]
+            "measurement": {
+                "param1Lifetime": 17185,
+                "param2Instantaneous": 1.0
+            }
         }
     },
     {
