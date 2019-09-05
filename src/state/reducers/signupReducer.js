@@ -4,6 +4,7 @@ import {
     SIGNUP_REQUESTED,
     SIGNUP_SUCCESSFULL,
     SIGNUP_FAILURE,
+    RESET_SIGNUP
 } from '../../constants/actions'
 
 
@@ -29,8 +30,16 @@ const signupReducer = (state = {}, action) => {
                 ...state,
                 isLoading: false,
                 ...action.payload,
-                isSignupSuccessful: true
+                isSignupSuccessful: false
             };
+        case RESET_SIGNUP:
+            return {
+                ...state,
+                isLoading: false,
+                ...action.payload,
+                isSignupSuccessful: false
+            };
+
 
         default:
             return state;

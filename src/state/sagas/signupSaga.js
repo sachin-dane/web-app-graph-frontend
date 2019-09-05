@@ -7,7 +7,8 @@ import {
 
 import {
     signupSuccessfull,
-    signupFailure
+    signupFailure,
+    resetSignup
 } from '../actions/signupActions';
 import signupApi from '../../api/signupApi';
 
@@ -17,13 +18,13 @@ export function* signupApiRequest(action) {
         response
         // error`
     } = yield call(signupApi.signupApiRequest, action.payload);
-    console.log('signupsaga response==>> ', response)
-    if (response) {
-
+    console.log('signupApiRequest response==>> ', response)
+    if (response && response.data.status_code === 200) {
         yield put(signupSuccessfull());
+        yield put(resetSignup())
     } else {
         console.log('signupsaga response==>> elseeee')
-        yield put(signupFailure());
+        yield put(signupFailure(response.data));
     }
 }
 

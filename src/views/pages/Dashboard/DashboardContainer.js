@@ -45,6 +45,14 @@ class DashboardContainer extends React.Component {
         }
     }
 
+    getStatus = (statusId) => {
+        let status = ''
+        if (statusId === 0) status = 'Inactive Site'
+        else if (statusId === 1) status = 'Active Site'
+        if (statusId === 2) status = 'Proposed Site'
+        return status
+    }
+
     render() {
         console.log('User Dashboard state==>>', this.props)
         return (
@@ -167,9 +175,57 @@ class DashboardContainer extends React.Component {
                                     </div>
                                 </div>
                                 :
-                                <div className='no-records-found'>
-                                    <i>No Records Found</i>
-                                </div>
+                                Object.keys(this.props.sitesById.siteList).length > 0 ?
+
+                                    <>
+                                        <div className='row'>
+                                            <div className='show-site-details'>
+                                                Site Details
+                                        </div>
+                                        </div>
+                                        <div className='row'>
+                                            <div className='col-sm-6'>
+                                                <table>
+                                                    <tr>
+                                                        <td>Site Name</td>
+                                                        <td>{this.props.sitesById.siteList.siteName}</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div className='col-sm-6'>
+                                                <table>
+                                                    <tr>
+                                                        <td>Status</td>
+                                                        <td>{this.getStatus(this.props.sitesById.siteList.status)}</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div className='row'>
+                                            <div className='col-sm-6'>
+                                                <table>
+                                                    <tr>
+                                                        <td>Status</td>
+                                                        <td>{this.getStatus(this.props.sitesById.siteList.status)}</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div className='col-sm-6'>
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Status</td>
+                                                            <td>{this.getStatus(this.props.sitesById.siteList.status)}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </>
+                                    :
+                                    < div className='no-records-found'>
+                                        <i>No Records Found</i>
+                                    </div>
                     }
 
                 </section>
