@@ -113,51 +113,65 @@ class DashboardContainer extends React.Component {
                         </div>
 
                     </div>
-                    {/* <div className='row site-header'>
-                        Site Header
-                        </div> */}
-                    <div className='row'>
-                        <div className='col-sm-6'>
-                            <div className='graph-detail'>
-                                <Chart
-                                    width={'500px'}
-                                    height={'360px'}
-                                    chartType="ColumnChart"
-                                    loader={<div>Loading Chart</div>}
-                                    data={this.props.sitesById.siteList.lifetimeObj}
-                                    options={{
-                                        // Material design options
-                                        chart: {
-                                            title: 'Site Performance',
-                                            subtitle: 'Data Obj 1, Data Obj 2, and Data Obj 3: 2014-2017',
-                                        },
-                                    }}
-                                    // For tests
-                                    rootProps={{ 'data-testid': '2' }}
-                                />
-                            </div>
-                        </div>
-                        <div className='col-sm-6'>
-                            <div className='graph-detail'>
-                                <Chart
-                                    width={'500px'}
-                                    height={'360px'}
-                                    chartType="ColumnChart"
-                                    loader={<div>Loading Chart</div>}
-                                    data={this.props.sitesById.siteList.instantaneousObj}
-                                    options={{
-                                        // Material design options
-                                        chart: {
-                                            title: 'Site Performance',
-                                            subtitle: 'Data Obj 1, Data Obj 2, and Data Obj 3: 2014-2017',
-                                        },
-                                    }}
-                                    // For tests
-                                    rootProps={{ 'data-testid': '2' }}
-                                />
-                            </div>
-                        </div>
-                    </div>
+                    {
+                        this.props.sitesById.isLoading ?
+                            <div class="loading"></div>
+                            :
+                            Object.keys(this.props.sitesById.siteList).length > 0 && this.props.sitesById.siteList.status === 1 ?
+                                <div className='row'>
+                                    <div className='col-sm-6'>
+                                        <div className='graph-detail'>
+                                            <Chart
+                                                width={'500px'}
+                                                height={'360px'}
+                                                chartType="ColumnChart"
+                                                loader={<div>Loading Chart</div>}
+                                                data={this.props.sitesById.siteList.lifetimeObj}
+                                                options={{
+                                                    // Material design options
+                                                    title: `Site Name : ${this.props.sitesById.siteList.siteName}`,
+                                                    hAxis: {
+                                                        title: 'Event Date',
+                                                    },
+                                                    vAxis: {
+                                                        title: 'Lifetime Value'
+                                                    }
+                                                }}
+                                                // For tests
+                                                rootProps={{ 'data-testid': '2' }}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className='col-sm-6'>
+                                        <div className='graph-detail'>
+                                            <Chart
+                                                width={'500px'}
+                                                height={'360px'}
+                                                chartType="ColumnChart"
+                                                loader={<div>Loading Chart</div>}
+                                                data={this.props.sitesById.siteList.instantaneousObj}
+                                                options={{
+                                                    // Material design options
+                                                    title: `Site Name : ${this.props.sitesById.siteList.siteName}`,
+                                                    hAxis: {
+                                                        title: 'Event Date',
+                                                    },
+                                                    vAxis: {
+                                                        title: 'Instantaneous Value'
+                                                    }
+                                                }}
+                                                // For tests
+                                                rootProps={{ 'data-testid': '2' }}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                :
+                                <div className='no-records-found'>
+                                    <i>No Records Found</i>
+                                </div>
+                    }
+
                 </section>
             </div >
         );

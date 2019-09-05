@@ -87,28 +87,35 @@ export function* fetchSitesById(action) {
     } = yield call(siteListApi.fetchSitesById, action.payload);
     console.log('fetchSitesById response==>> ', response)
     if (response) {
-        let sitesBarData = {
-            instantaneousObj: [['Event Date', 'Instantaneous', { role: 'style' }]],
-            lifetimeObj: [['Event Date', 'LifeTime', { role: 'style' }]],
+        if (response.data.data.data.length > 0) {
+            let sitesBarData = {
+                instantaneousObj: [['Event Date', 'Instantaneous', { role: 'style' }]],
+                lifetimeObj: [['Event Date', 'LifeTime', { role: 'style' }]],
+                siteName: response.data.data.data[0].site_name,
+                status: response.data.data.data[0].status
+            }
+            let colorList = ['#2196f3', '#f3212d', '#2df321']
+            response.data.data.data.map((item, index) => {
+                console.log('index==>>', index)
+                let instantData = []
+                let lifetimeData = []
+                instantData.push(new Date(item.event_date).toLocaleDateString()) // DD/ MM /YYYY
+                instantData.push(item.instantaneous)
+                instantData.push(colorList[index])
+                lifetimeData.push(new Date(item.event_date).toLocaleDateString())
+                lifetimeData.push(item.lifetime)
+                lifetimeData.push(colorList[index])
+                sitesBarData.instantaneousObj.push(instantData)
+                sitesBarData.lifetimeObj.push(lifetimeData)
+            })
+            console.log('sitesBarData==>>', sitesBarData)
+            yield put(fetchSitesByidSuccessful(sitesBarData));
+
+        } else {
+            console.log('sitesBarData==>>')
+            yield put(fetchSitesByidFailure());
         }
 
-        let colorList = ['#2196f3', '#f3212d', '#2df321']
-
-        response.data.data.data.map((item, index) => {
-            console.log('index==>>', index)
-            let instantData = []
-            let lifetimeData = []
-            instantData.push(item.event_date)
-            instantData.push(item.instantaneous)
-            instantData.push(colorList[index])
-            lifetimeData.push(item.event_date)
-            lifetimeData.push(item.lifetime)
-            lifetimeData.push(colorList[index])
-            sitesBarData.instantaneousObj.push(instantData)
-            sitesBarData.lifetimeObj.push(lifetimeData)
-        })
-        console.log('sitesBarData==>>', sitesBarData)
-        yield put(fetchSitesByidSuccessful(sitesBarData));
     } else {
         console.log('userListSaga response==>> elseeee')
         yield put(fetchSitesByidFailure());
@@ -119,8 +126,6 @@ export default function* siteListSaga() {
     yield takeEvery(FETCH_SITES_LIST_REQUESTED, fetchSitesListRequest);
     yield takeEvery(FETCH_USER_SITES_REQUESTED, fetchUserSpecificSites);
     yield takeEvery(FETCH_SITES_BYID_REQUEST, fetchSitesById);
-
-
 }
 
 
