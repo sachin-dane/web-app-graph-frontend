@@ -7,7 +7,8 @@
             "measurement": {
                 "param1Lifetime": 17185,
                 "param2Instantaneous": 1.0
-            }
+            },
+            "eventDate": "12-01-1994"
         },
         "data_obect_2": {
             "measurement": {

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Chart } from "react-google-charts";
 import Select from 'react-select';
 import Sidebar from '../../ui/Sidebar'
-import { fetchUserSitesRequest } from '../../../state/actions/siteListActions'
+import { fetchUserSitesRequest, fetchSitesByidRequest } from '../../../state/actions/siteListActions'
 
 class DashboardContainer extends React.Component {
     constructor(props) {
@@ -18,10 +18,22 @@ class DashboardContainer extends React.Component {
         this.props.fetchUserSitesRequest(this.props.loginData.userData.id)
     }
     updateSelectItemList = field => items => {
+        console.log('field, items ==>>', field, items)
         this.setState({
             [field]: items,
             loaded: true
         });
+        this.setState(
+            {
+                [field]: items,
+                loaded: true
+            },
+            () => {
+                this.props.fetchSitesByidRequest(items.value)
+            }
+        );
+
+
     };
     componentWillReceiveProps(nextProps) {
         if (nextProps.userSites.siteList) {
@@ -101,24 +113,18 @@ class DashboardContainer extends React.Component {
                         </div>
 
                     </div>
-                    <div className='row site-header'>
+                    {/* <div className='row site-header'>
                         Site Header
-                        </div>
+                        </div> */}
                     <div className='row'>
-                        <div className='col-sm-8'>
+                        <div className='col-sm-6'>
                             <div className='graph-detail'>
                                 <Chart
-                                    width={'696px'}
+                                    width={'500px'}
                                     height={'360px'}
-                                    chartType="Bar"
+                                    chartType="ColumnChart"
                                     loader={<div>Loading Chart</div>}
-                                    data={[
-                                        ['Year', 'DataObj1', 'DataObj2', 'DataObj3'],
-                                        ['2014', 1000, 400, 200],
-                                        // ['2015', 1170, 460, 250],
-                                        // ['2016', 660, 1120, 300],
-                                        // ['2017', 1030, 540, 350],
-                                    ]}
+                                    data={this.props.sitesById.siteList.lifetimeObj}
                                     options={{
                                         // Material design options
                                         chart: {
@@ -130,13 +136,27 @@ class DashboardContainer extends React.Component {
                                     rootProps={{ 'data-testid': '2' }}
                                 />
                             </div>
-                            {/* <div className='graph-bar'>
-                                graph bar
-                                </div> */}
                         </div>
-                        <div className='col-sm-4 site-detail'>
-                            Site Details
+                        <div className='col-sm-6'>
+                            <div className='graph-detail'>
+                                <Chart
+                                    width={'500px'}
+                                    height={'360px'}
+                                    chartType="ColumnChart"
+                                    loader={<div>Loading Chart</div>}
+                                    data={this.props.sitesById.siteList.instantaneousObj}
+                                    options={{
+                                        // Material design options
+                                        chart: {
+                                            title: 'Site Performance',
+                                            subtitle: 'Data Obj 1, Data Obj 2, and Data Obj 3: 2014-2017',
+                                        },
+                                    }}
+                                    // For tests
+                                    rootProps={{ 'data-testid': '2' }}
+                                />
                             </div>
+                        </div>
                     </div>
                 </section>
             </div >
@@ -147,13 +167,15 @@ class DashboardContainer extends React.Component {
 const mapStateToProps = state => {
     return {
         loginData: state.login.loginData,
-        userSites: state.siteList.sitesListData.userSites
+        userSites: state.siteList.sitesListData.userSites,
+        sitesById: state.siteList.sitesListData.sitesById
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         fetchUserSitesRequest: data => dispatch(fetchUserSitesRequest(data)),
+        fetchSitesByidRequest: data => dispatch(fetchSitesByidRequest(data)),
     };
 };
 

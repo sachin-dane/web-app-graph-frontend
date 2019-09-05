@@ -338,10 +338,13 @@
 }
 
 .graph-detail{
-    height: 360px;
-    background-color: gainsboro;
+    height: 375px;
     margin: 15px 0px 0px 0px;
     border-radius: 8px;
+    border: 1px solid #ccc;
+}
+.graph-detail:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
 .graph-bar{
@@ -352,7 +355,6 @@
 }
 
 .site-detail{
-  height: 315px;
   background-color: gainsboro;
   margin: 15px 0px 0px 0px;
   border-radius: 8px;

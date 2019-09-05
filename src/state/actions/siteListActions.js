@@ -4,7 +4,10 @@ import {
     FETCH_SITES_LIST_FAILURE,
     FETCH_USER_SITES_REQUESTED,
     FETCH_USER_SITES_SUCCESSFUL,
-    FETCH_USER_SITES_FAILURE
+    FETCH_USER_SITES_FAILURE,
+    FETCH_SITES_BYID_REQUEST,
+    FETCH_SITES_BYID_SUCCESSFUL,
+    FETCH_SITES_BYID_FAILURE
 } from '../../constants/actions'
 
 export const fetchSitesListRequest = data => {
@@ -47,6 +50,28 @@ export const fetchUserSitesSuccessful = data => {
 export const fetchUserSitesFailure = data => {
     return {
         type: FETCH_USER_SITES_FAILURE,
+        payload: data
+    };
+};
+
+export const fetchSitesByidRequest = data => {
+    console.log('SIgnup data==>>', data)
+    return {
+        type: FETCH_SITES_BYID_REQUEST,
+        payload: data
+    };
+};
+
+export const fetchSitesByidSuccessful = data => {
+    return {
+        type: FETCH_SITES_BYID_SUCCESSFUL,
+        payload: data
+    };
+};
+
+export const fetchSitesByidFailure = data => {
+    return {
+        type: FETCH_SITES_BYID_FAILURE,
         payload: data
     };
 };

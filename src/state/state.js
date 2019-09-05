@@ -40,6 +40,10 @@ const initialState = {
             userSites: {
                 isLoading: false,
                 siteList: []
+            },
+            sitesById: {
+                isLoading: false,
+                siteList: []
             }
         },
 

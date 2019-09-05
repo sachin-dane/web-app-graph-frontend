@@ -30,7 +30,24 @@ const fetchUserSpecificSites = async data => {
     }
 };
 
+const fetchSitesById = async data => {
+    try {
+        console.log('site list apiData==>>', data)
+        const response = await ApiUtils.get(`${rootUrl}/sites/${data}`);
+        console.log('response==>>', response)
+        if (response.data.status_code === 200) {
+            return { response };
+        } else {
+            return { error: { message: 'Somethig Went Wrong!' } }
+        }
+    } catch (error) {
+        console.log('error==>>', error)
+        return { error: { ...error.data } };
+    }
+};
+
 export default {
     fetchSitesListRequest,
-    fetchUserSpecificSites
+    fetchUserSpecificSites,
+    fetchSitesById,
 };

@@ -6,7 +6,10 @@ import {
     FETCH_SITES_LIST_FAILURE,
     FETCH_USER_SITES_REQUESTED,
     FETCH_USER_SITES_SUCCESSFUL,
-    FETCH_USER_SITES_FAILURE
+    FETCH_USER_SITES_FAILURE,
+    FETCH_SITES_BYID_REQUEST,
+    FETCH_SITES_BYID_SUCCESSFUL,
+    FETCH_SITES_BYID_FAILURE
 } from '../../constants/actions'
 
 
@@ -67,6 +70,32 @@ const sitesListReducer = (state = {}, action) => {
                 }
             };
 
+        case FETCH_SITES_BYID_REQUEST:
+            return {
+                ...state,
+                sitesById: {
+                    isLoading: true,
+                    siteList: []
+                }
+            };
+
+        case FETCH_SITES_BYID_SUCCESSFUL:
+            return {
+                ...state,
+                sitesById: {
+                    isLoading: false,
+                    siteList: action.payload
+                }
+            };
+
+        case FETCH_SITES_BYID_FAILURE:
+            return {
+                ...state,
+                sitesById: {
+                    isLoading: false,
+                    siteList: []
+                }
+            };
         default:
             return state;
     }
