@@ -146,7 +146,7 @@
     bottom: 0;
     width: 100%;
     z-index: 5;
-    height: 8vh;
+    height: 7vh;
     display: flex;
     flex-flow: column wrap;
   }
@@ -186,7 +186,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: 70px;
+    height: 60px;
     ul{
        margin-bottom: 0px
      }
@@ -216,9 +216,12 @@
   }
 
   .signup-form{
-    margin-top: 140px;
+    margin: 100px 100px 0px 100px;
+    border: 1px solid;
+    padding: 20px 0px 0px 0px;
+    box-shadow: 0 0 20px rgba(33,33,33,.2);
     .row{
-      padding-bottom: 15px;
+      padding-bottom: 13px;
     }
   }
 
@@ -226,6 +229,10 @@
     max-width: 600px;
     width: 100%;
     margin: 130px auto 0;
+    border: 1px solid;
+    /* padding: 20px; */
+    padding-top: 100px;
+    box-shadow: 0 0 20px rgba(33,33,33,.2);
   .row{
     padding-bottom: 15px;
   }
@@ -358,4 +365,8 @@
   background-color: gainsboro;
   margin: 15px 0px 0px 0px;
   border-radius: 8px;
+}
+
+.already-signin-btn{
+  
 }

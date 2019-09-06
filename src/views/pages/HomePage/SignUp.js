@@ -45,7 +45,6 @@ class SignUp extends React.Component {
                 toast.error('Password does not match please confirm password')
             }
             this.validator.showMessages();
-            // rerender to show messages for the first time
             this.forceUpdate();
         }
     }
@@ -101,11 +100,7 @@ class SignUp extends React.Component {
                                 />
                                 <span style={{ color: '#d54b50' }}>
                                     {' '}
-                                    {this.validator.message(
-                                        'Email Address',
-                                        this.state.form.email,
-                                        ['required']
-                                    )}
+                                    {this.validator.message('email', this.state.form.email, 'required|email')}
                                 </span>
                             </div>
                             <div className="col-sm-4">
@@ -249,7 +244,7 @@ class SignUp extends React.Component {
                                 </span>
                             </div>
                         </div>
-                        <div className="row justify-content-center">
+                        <div className="row justify-content-center signup-btn">
                             <div className="col-sm-4">
                                 <button type="submit" class="btn btn-block btn-primary"
                                     onClick={(e) => this.onSignupInClick(e)}
@@ -259,7 +254,7 @@ class SignUp extends React.Component {
                                 <p>By signing up you agree to our terms of use & privacy policy.</p>
                             </div>
                         </div>
-                        <div className="row justify-content-center">
+                        <div className="row justify-content-center already-signin-btn">
                             <p>Already have an account? <Link to={'/signin'}>Log In</Link></p>
                         </div>
 
