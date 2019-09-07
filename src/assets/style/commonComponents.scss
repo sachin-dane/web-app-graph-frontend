@@ -1,0 +1,88 @@
+.Toastify {
+    .Toastify__toast-container--top-center {
+        top: 0;
+    }
+    .Toastify__toast-container {
+        .Toastify__toast {
+            min-height: 56px;
+            box-shadow: 0 4px 8px #171717;
+        }
+        .Toastify__toast--success {
+            background: #22c494;
+        }
+        .Toastify__toast-body {
+            font-family: 'Open Sans', sans-serif;
+            padding: 0 1rem;
+            color: #000;
+            font-weight: 600;
+        }
+        .Toastify__close-button {
+            // background: url('#{$assetPath}/close.svg') no-repeat center center;
+            width: 1.6rem;
+            height: 1.6rem;
+            overflow: hidden;
+            text-indent: -999rem;
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+.profile-usertitle {
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 25px;
+
+  }
+  .user-profile{
+    border: 1px solid #ccc;
+    box-shadow: 0 0 15px #333;
+    margin-bottom: 20px;
+  }
+
+  .profile-usertitle-name {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 7px;
+  }
+  
+  .profile-usertitle-job {
+    text-transform: uppercase;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  .loading {
+    height: 0;
+    width: 0;
+    padding: 15px;
+    border: 6px solid #ccc;
+    border-right-color: #888;
+    border-radius: 22px;
+    -webkit-animation: rotate 1s infinite linear;
+    /* left, top and position just for the demo! */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
+  
+  @-webkit-keyframes rotate {
+    /* 100% keyframe for  clockwise. 
+       use 0% instead for anticlockwise */
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  .no-records-found{
+    height: 0;
+    padding: 15px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
