@@ -15,6 +15,36 @@ To get the frontend running locally:
 - `npm start` to start the local server
 - Once you start nodejs server, then you need to add API end point in front end i.e. web-app-graph-frontend/.env fle
   ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/env_variable.png)
+- You can acces application on 'http://0.0.0.0:8080/' or 'http://localhost:8080/'
+
+## Test Accounts
+  ### Admin Account
+  - admin@mail.com / admin@123
+
+  ### Admin Account
+  - rober_downey@mail.com / robert@123
+  - chris_hemsworth@mail.com / chris@123
+  - bradley_cooper@mail.com / bradley@123
+  - matt_damon@mail.com / matt@123
+
+  ### Reviewer Account
+  - dwayne_johnson@mail.com /dwayne@123
+
+
+## Sites
+  ### Active Sites
+  - Natural Gas
+  - Hospitality
+  - Automobile
+  - Power Generation
+
+  ### Proposed Sites
+  - Textile Industry
+  - Plastic 
+
+  ### Inactive Sites
+  - Electronics 
+  - IT Industry
 
 ## Component architecture
   ### Components will be of the following types
