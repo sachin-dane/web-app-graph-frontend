@@ -56,6 +56,10 @@ const initialState = {
             sitesById: {
                 isLoading: false,
                 siteList: []
+            },
+            createSite: {
+                isLoading: false,
+                isSiteCreated: false
             }
         },
 

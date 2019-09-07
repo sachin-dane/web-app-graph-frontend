@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <header>
             <nav className='header-ul'>
-                <h1>Logo</h1>
+                <h2>Logo</h2>
             </nav>
         </header>
     );

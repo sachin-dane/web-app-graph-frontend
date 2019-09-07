@@ -6,7 +6,8 @@ import {
     FETCH_SITES_LIST_REQUESTED,
     FETCH_USER_SITES_REQUESTED,
     FETCH_SITES_BYID_REQUEST,
-    ASSIGN_USER_TO_SITE_REQUEST
+    ASSIGN_USER_TO_SITE_REQUEST,
+    CREATE_SITE_REQUEST
 } from '../../constants/actions'
 
 import {
@@ -17,20 +18,23 @@ import {
     fetchSitesByidSuccessful,
     fetchSitesByidFailure,
     assignSiteToUserSuccessful,
-    assignSiteToUserFailue
+    assignSiteToUserFailue,
+    createSiteFailue,
+    createSiteSuccessful,
+    fetchSitesListRequest
 } from '../actions/siteListActions';
 import siteListApi from '../../api/siteListApi';
 
-export function* fetchSitesListRequest(action) {
+export function* fetchSitesListAsync(action) {
     console.log('lgin action==>> ', action)
     const {
         response
         // error`
-    } = yield call(siteListApi.fetchSitesListRequest, action.payload);
+    } = yield call(siteListApi.fetchSitesListAsync, action.payload);
     console.log('userListSaga response==>> ', response)
-    if (response) {
+    if (response && response.data.data.data.length) {
 
-        yield put(fetchSitesListSuccessful());
+        yield put(fetchSitesListSuccessful(response.data.data.data));
     } else {
         console.log('userListSaga response==>> elseeee')
         yield put(fetchSitesListFailue());
@@ -141,11 +145,28 @@ export function* assignSiteToUser(action) {
     }
 }
 
+export function* createSiteRequest(action) {
+    console.log('lgin action==>> ', action)
+    const {
+        response
+        // error`
+    } = yield call(siteListApi.createSiteRequest, action.payload);
+    console.log('userListSaga response==>> ', response)
+    if (response) {
+        yield put(fetchSitesListRequest())
+        yield put(createSiteSuccessful());
+    } else {
+        console.log('userListSaga response==>> elseeee')
+        yield put(createSiteFailue());
+    }
+}
+
 export default function* siteListSaga() {
-    yield takeEvery(FETCH_SITES_LIST_REQUESTED, fetchSitesListRequest);
+    yield takeEvery(FETCH_SITES_LIST_REQUESTED, fetchSitesListAsync);
     yield takeEvery(FETCH_USER_SITES_REQUESTED, fetchUserSpecificSites);
     yield takeEvery(FETCH_SITES_BYID_REQUEST, fetchSitesById);
     yield takeEvery(ASSIGN_USER_TO_SITE_REQUEST, assignSiteToUser);
+    yield takeEvery(CREATE_SITE_REQUEST, createSiteRequest);
 }
 
 

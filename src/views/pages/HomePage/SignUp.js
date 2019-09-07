@@ -81,7 +81,7 @@ class SignUp extends React.Component {
                 < div >
                     <form className='signup-form'>
                         <div className="registration-title">
-                            <h5>Registration Form</h5>
+                            <h5>Create New Account</h5>
                         </div>
                         <hr />
                         <div className="row justify-content-center">
@@ -262,7 +262,7 @@ class SignUp extends React.Component {
                         </div>
                         <div className="row justify-content-center">
                             <div className="col-sm-4">
-                                <input type="text"
+                                <input type="password"
                                     className="form-control" name='password' placeholder="Password"
                                     value={this.state.form.password}
                                     onChange={(e) => this.inputChangeHandler(e)}
@@ -277,7 +277,7 @@ class SignUp extends React.Component {
                                 </span>
                             </div>
                             <div className="col-sm-4">
-                                <input type="text"
+                                <input type="password"
                                     className="form-control" name='confirm_password' placeholder="Confirm Password"
                                     value={this.state.form.confirm_password}
                                     onChange={(e) => this.inputChangeHandler(e)}

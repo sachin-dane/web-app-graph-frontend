@@ -19,7 +19,7 @@ class SiteModal extends React.Component {
             siteTypeOptions: [
                 { value: 1, label: 'Active' },
                 { value: 2, label: 'Proposed' },
-                { value: 3, label: 'Inactive' }
+                { value: 0, label: 'Inactive' }
             ],
             form: {
                 site_id: this.props.modalBody.id ? this.props.modalBody.id : '',
@@ -64,7 +64,7 @@ class SiteModal extends React.Component {
         e.preventDefault();
         if (!this.state.form.user_id) {
             toast.error('Please select user');
-        } else if (!this.state.form.site_type) {
+        } else if (this.state.form.site_type === '') {
             toast.error('Please select site type');
         } else {
             let payload = this.state.form
@@ -119,7 +119,7 @@ class SiteModal extends React.Component {
                             </div>
                             <div className='row'>
                                 <div className='col-sm-6'>
-                                    <div className='form-group'>
+                                    <div className='form-group site-modal-dropdown'>
                                         <label for="email">Select User:</label>
                                         <Select
                                             value={this.state.selectedUser}
@@ -138,7 +138,7 @@ class SiteModal extends React.Component {
                             </div>
                             <div className='row'>
                                 <div className='col-sm-6'>
-                                    <div className='form-group'>
+                                    <div className='form-group site-modal-type site-modal-dropdown'>
                                         <label for="email">Select Site Type:</label>
                                         <Select
                                             value={this.state.selectedType}

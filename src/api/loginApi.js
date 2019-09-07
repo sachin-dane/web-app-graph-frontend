@@ -20,6 +20,25 @@ const loginApiRequest = async data => {
     }
 };
 
+const getUserDetails = async data => {
+    console.log('rootUrl==>>', rootUrl)
+    try {
+        console.log('Data==>>', data)
+        const response = await ApiUtils.get(`${rootUrl}/users/${data}`);
+        console.log('response login api ==>>', response)
+        if (response.data.status_code === 200) {
+            return { response };
+        } else {
+            console.log()
+            return { response };
+        }
+
+    } catch (error) {
+        return { error: { ...error.data } };
+    }
+};
+
 export default {
-    loginApiRequest
+    loginApiRequest,
+    getUserDetails
 };

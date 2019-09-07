@@ -83,11 +83,11 @@ class ForgotPassword extends React.Component {
                         <hr />
                         <div className="row justify-content-center">
                             <div className="col-sm-10">
-                                <p>Enter your registered email and phone no to validate user</p>
+                                <p>Enter your registered email and Mobile Number for validation</p>
                             </div>
                         </div>
                         <div className="row justify-content-center">
-                            <div className="col-sm-6">
+                            <div className="col-sm-7">
                                 <input type="text"
                                     className="form-control"
                                     name='email'
@@ -104,19 +104,19 @@ class ForgotPassword extends React.Component {
                             </div>
                         </div>
                         <div className="row justify-content-center">
-                            <div className="col-sm-6">
-                                <input type="password"
+                            <div className="col-sm-7">
+                                <input type="text"
                                     className="form-control"
                                     name='phone_no'
-                                    placeholder="Phone Number"
+                                    placeholder="Mobile Number"
                                     value={this.state.form.phone_no}
                                     onChange={(e) => this.inputChangeHandler(e, 'form')}
-                                    title='Enter phone number for verification.'
+                                    title='Enter Mobile number for verification.'
                                 />
                                 <span style={{ color: '#d54b50' }}>
                                     {' '}
                                     {this.validator.message(
-                                        'phone no',
+                                        'Mobile No',
                                         this.state.form.phone_no,
                                         ['required']
                                     )}
@@ -131,7 +131,7 @@ class ForgotPassword extends React.Component {
                             </div>
                             <div className="col-sm-3 col-sm-pull-4">
                                 <button type="submit"
-                                    class="btn btn-primary "
+                                    class="btn btn-primary sign-in-btn "
                                     onClick={(e) => this.onEmailSubmitClick(e)}
                                 >Submit</button>
                             </div>

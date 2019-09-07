@@ -1,31 +1,30 @@
 /* eslint-disable no-console */
 import React from 'react';
 import { connect } from 'react-redux';
-import { find } from 'lodash';
 import SimpleReactValidator from 'simple-react-validator';
-import moment from 'moment';
-import Header from '../../ui/Header'
 import Sidebar from '../../ui/Sidebar'
-import Footer from '../../ui/Footer'
-import ProfileComponent from '../HomePage/ProfileComponent'
 import { updateProfileRequest } from '../../../state/actions/updateprofileActions'
+import { getUserRequst } from '../../../state/actions/loginActions'
+
 
 class Profile extends React.Component {
     constructor(props) {
         super(props);
         this.validator = new SimpleReactValidator();
         console.log('Constructor props ==>>', this.props)
+        this.props.getUserRequst(Object.keys(this.props.loginData.userData).length && this.props.loginData.userData.id ? this.props.loginData.userData.id : '')
         this.state = {
             form: {
                 firstname: Object.keys(this.props.loginData.userData).length && this.props.loginData.userData.firstname ? this.props.loginData.userData.firstname : '',
                 lastname: Object.keys(this.props.loginData.userData).length && this.props.loginData.userData.lastname ? this.props.loginData.userData.lastname : '',
                 email: Object.keys(this.props.loginData.userData).length && this.props.loginData.userData.email ? this.props.loginData.userData.email : '',
-                phone_number: Object.keys(this.props.loginData.userData).length && this.props.loginData.userData.phone_number ? this.props.loginData.userData.phone_number : '',
+                phone_number: Object.keys(this.props.loginData.userData).length && this.props.loginData.userData.phone_no ? this.props.loginData.userData.phone_no : '',
                 company_name: Object.keys(this.props.loginData.userData).length && this.props.loginData.userData.company_name ? this.props.loginData.userData.company_name : '',
                 state: Object.keys(this.props.loginData.userData).length && this.props.loginData.userData.state ? this.props.loginData.userData.state : '',
                 city: Object.keys(this.props.loginData.userData).length && this.props.loginData.userData.city ? this.props.loginData.userData.city : '',
                 zip_code: Object.keys(this.props.loginData.userData).length && this.props.loginData.userData.zip_code ? this.props.loginData.userData.zip_code : '',
                 address: Object.keys(this.props.loginData.userData).length && this.props.loginData.userData.address ? this.props.loginData.userData.address : '',
+                id: Object.keys(this.props.loginData.userData).length && this.props.loginData.userData.id ? this.props.loginData.userData.id : ''
             }
         };
     }
@@ -42,12 +41,9 @@ class Profile extends React.Component {
     onUpdateClick = (e) => {
         e.preventDefault()
         if (this.validator.allValid()) {
-            alert('All Field filled')
             this.props.updateProfileRequest(this.state.form)
         } else {
-            alert('Required')
             this.validator.showMessages();
-            // rerender to show messages for the first time
             this.forceUpdate();
         }
     }
@@ -60,6 +56,10 @@ class Profile extends React.Component {
                     <Sidebar />
 
                     <form className='profile-form'>
+                        <div className="registration-title">
+                            <h5>Update Your Profile Information</h5>
+                        </div>
+                        <hr />
                         <div className="row justify-content-center">
                             <div className="col-sm-6">
                                 <label for="exampleInputEmail1">First name</label>
@@ -255,6 +255,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         updateProfileRequest: data => dispatch(updateProfileRequest(data)),
+        getUserRequst: data => dispatch(getUserRequst(data)),
+
     };
 };
 

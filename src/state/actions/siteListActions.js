@@ -11,7 +11,11 @@ import {
     ASSIGN_USER_TO_SITE_REQUEST,
     ASSIGN_USER_TO_SITE_SUCCESSFUL,
     ASSIGN_USER_TO_SITE_FAILURE,
-    RESET_ASSIGN_USER_TO_SITE
+    RESET_ASSIGN_USER_TO_SITE,
+    CREATE_SITE_REQUEST,
+    CREATE_SITE_SUCCESSFUL,
+    CREATE_SITE_FAILURE,
+    RESET_CREATE_SITE
 } from '../../constants/actions'
 import { toast } from 'react-toastify';
 
@@ -114,6 +118,38 @@ export const resetAssignSiteToUser = data => {
 };
 
 
+
+
+export const createSiteRequest = data => {
+    console.log('SIgnup data==>>', data)
+    return {
+        type: CREATE_SITE_REQUEST,
+        payload: data
+    };
+};
+
+export const createSiteSuccessful = data => {
+    toast.success('Site is created successfully.')
+    return {
+        type: CREATE_SITE_SUCCESSFUL,
+        payload: data
+    };
+};
+
+export const createSiteFailue = data => {
+    toast.error('Something Went wrong')
+    return {
+        type: CREATE_SITE_FAILURE,
+        payload: data
+    };
+};
+
+export const resetCreateSite = data => {
+    return {
+        type: RESET_CREATE_SITE,
+        payload: data
+    };
+};
 
 
 

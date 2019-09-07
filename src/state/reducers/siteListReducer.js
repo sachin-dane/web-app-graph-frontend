@@ -13,7 +13,11 @@ import {
     ASSIGN_USER_TO_SITE_REQUEST,
     ASSIGN_USER_TO_SITE_SUCCESSFUL,
     ASSIGN_USER_TO_SITE_FAILURE,
-    RESET_ASSIGN_USER_TO_SITE
+    RESET_ASSIGN_USER_TO_SITE,
+    CREATE_SITE_REQUEST,
+    CREATE_SITE_SUCCESSFUL,
+    CREATE_SITE_FAILURE,
+    RESET_CREATE_SITE
 } from '../../constants/actions'
 
 
@@ -33,7 +37,7 @@ const sitesListReducer = (state = {}, action) => {
                 ...state,
                 allSites: {
                     isLoading: false,
-                    siteList: sites
+                    siteList: action.payload
                 }
             };
 
@@ -134,6 +138,42 @@ const sitesListReducer = (state = {}, action) => {
                 assignSiteUser: {
                     isLoading: false,
                     isAssignSuccess: false
+                }
+            };
+
+        case CREATE_SITE_REQUEST:
+            return {
+                ...state,
+                createSite: {
+                    isLoading: true,
+                    isSiteCreated: false
+                }
+            };
+
+        case CREATE_SITE_SUCCESSFUL:
+            return {
+                ...state,
+                createSite: {
+                    isLoading: false,
+                    isSiteCreated: true
+                }
+            };
+
+        case CREATE_SITE_FAILURE:
+            return {
+                ...state,
+                createSite: {
+                    isLoading: false,
+                    isSiteCreated: false
+                }
+            };
+
+        case RESET_CREATE_SITE:
+            return {
+                ...state,
+                createSite: {
+                    isLoading: false,
+                    isSiteCreated: false
                 }
             };
 

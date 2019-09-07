@@ -19,7 +19,6 @@ export function* updateProfileApiRequest(action) {
     } = yield call(updateProfileApi.updateProfileApiRequest, action.payload);
     console.log('signupsaga response==>> ', response)
     if (response) {
-
         yield put(updateProfileSuccessful());
     } else {
         console.log('signupsaga response==>> elseeee')

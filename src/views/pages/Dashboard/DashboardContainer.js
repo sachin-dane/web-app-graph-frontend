@@ -14,11 +14,10 @@ class DashboardContainer extends React.Component {
             proposedSitesList: [],
             inactiveSitesList: []
         };
-        console.log('dasboard props=>>>', this.props)
         this.props.fetchUserSitesRequest({ id: this.props.loginData.userData.id, role_id: props.loginData.userData.user_role })
     }
     updateSelectItemList = field => items => {
-        console.log('field, items ==>>', field, items)
+
         this.setState({
             [field]: items,
             loaded: true
@@ -33,7 +32,7 @@ class DashboardContainer extends React.Component {
             }
         );
     };
-    
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.userSites.siteList) {
             this.setState({

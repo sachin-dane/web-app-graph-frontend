@@ -44,13 +44,13 @@ class SignIn extends React.Component {
             <div>
                 <form className='sign-form container'>
                     <div className="row justify-content-center">
-                        <div className="col-sm-4">
-                            <h3>Login</h3>
+                        <div className="col-sm-8 sign-in-title">
+                            <h3>Sign In To Your Account </h3>
                         </div>
                     </div>
                     <hr />
                     <div className="row justify-content-center">
-                        <div className="col-sm-6">
+                        <div className="col-sm-7">
                             <input type="text"
                                 className="form-control"
                                 name='email'
@@ -66,7 +66,7 @@ class SignIn extends React.Component {
                         </div>
                     </div>
                     <div className="row justify-content-center">
-                        <div className="col-sm-6">
+                        <div className="col-sm-7">
                             <input type="password"
                                 className="form-control"
                                 name='password'
@@ -87,18 +87,18 @@ class SignIn extends React.Component {
 
                     <div className="row justify-content-center">
 
-                        <div className="col-sm-4 col-sm-push-4">
+                        <div className="col-sm-4">
                             <p>New User? <Link to={'/signup'}>Sign Up</Link></p>
                         </div>
-                        <div className="col-sm-3 col-sm-pull-4">
+                        <div className="col-sm-3">
                             <button type="submit"
-                                class="btn btn-primary "
+                                class="btn btn-primary sign-in-btn"
                                 onClick={(e) => this.onSignInClick(e)}
                             >Sign in</button>
                         </div>
                     </div>
                     <div className="row justify-content-center">
-                        <div className="col-sm-6 col-sm-pull-2">
+                        <div className="col-sm-7">
                             <p><Link to={'/forgot-password'}>Forgot Password?</Link></p>
                         </div>
                     </div>
