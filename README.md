@@ -1,6 +1,6 @@
 # CES : Web App
 
-**CES Web APp frontend application built in react**
+**CES Web App frontend application built in react**
 
 ## Prerequisites:
 - GIT
