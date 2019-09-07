@@ -58,47 +58,48 @@ To get the frontend running locally:
 ## Application Screenshot
 
   1.  Sign In Page
-    - User can able to sign in to application
-    - Added validation
-    - If user want register, given sign up link to sign up.
-    - If user forgot password, given forgot password link to reset password. 
-    - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/sign_in.png)
-    - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/signin_validation.png)
+      - User can able to sign in to application
+      - Added validation
+      - If user want register, given sign up link to sign up.
+      - If user forgot password, given forgot password link to reset password. 
+      - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/sign_in.png)
+      - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/signin_validation.png)
+      
+  2.  Sign Up Page
+      - User can able to register and can pick role as Developer or Reviewer
+      - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/sign_up.png)
     
-  2. Sign Up Page
-    - User can able to register and can pick role as Developer or Reviewer
-    - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/sign_up.png)
-  
-  3. Forgot password
-    - First get email and phone number to validate user then user is able to reset password
-    - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/forgot_password.png) 
+  3.  Forgot password
+      - First get email and phone number to validate user then user is able to reset password
+      - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/forgot_password.png) 
 
-  4. Admin Panel / User List 
-    - Once admin user login into app will redirect user list page. where admin can approve / activate user or admin can delete user. Also given success messages/
-    - Once Use login to app left hand side / sidebar shown logged in user name and role.
-    - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/admin_userList.png)
-    - When you click on user table row, modal popup will appear and it will show all the details of user.
-    - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/user_details.png)
+  4.  Admin Panel / User List 
+      - Once admin user login into app will redirect user list page. where admin can approve / activate user or admin can delete user. Also given success messages/
+      - Once Use login to app left hand side / sidebar shown logged in user name and role.
+      - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/admin_userList.png)
+      - When you click on user table row, modal popup will appear and it will show all the details of user.
+      - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/user_details.png)
 
-  5. Admin Panel / Site
-    - Show all the sites created in application.
-    - Given two button site list and create site,
-    - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/admin_site_list.png)
-    - On cilck of any site modal popup will appear and admin can assign that site to user.
-    - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/assign_site_to_user.png)
-    - On click of create site button, form will appear and can fill site details created date will bydefault current date when use create site.
-    - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/create_site.png)
+  5.  Admin Panel / Site
+      - Show all the sites created in application.
+      - Given two button site list and create site,
+      - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/admin_site_list.png)
+      - On cilck of any site modal popup will appear and admin can assign that site to user.
+      - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/assign_site_to_user.png)
+      - On click of create site button, form will appear and can fill site details created date will bydefault current date when use create site.
+      - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/create_site.png)
   
-  6. User Dashboard / Profile
-    - User can update the profile information
-    - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/update_profile.png)
+  6.  User Dashboard / Profile
+      - User can update the profile information
+      - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/update_profile.png)
   
-  7. User Dashboard
-    - Once developer or reviewer login he/her will be redirected to dashboard page. Shown 3 tabs Acitve sites, Inactive sites and Proposed sites.
-    - If use is developer the sites which are authorized to developer only that sites are visible. Reviewer can all the sites.
-    - When user select any site by click on any dropdown list. Then selected sites will be visible on below blank space.
-    - If active sites are there then shown Graphical representation in bar chart format.
-    - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/site_info.png)
-    - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/graph_title.png)
-  8. Logout
-    - User can able to logout by click on logout button from left hand sidebar.
+  7.  User Dashboard
+      - Once developer or reviewer login he/her will be redirected to dashboard page. Shown 3 tabs Acitve sites, Inactive sites and Proposed sites.
+      - If use is developer the sites which are authorized to developer only that sites are visible. Reviewer can all the sites.
+      - When user select any site by click on any dropdown list. Then selected sites will be visible on below blank space.
+      - If active sites are there then shown Graphical representation in bar chart format.
+      - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/site_info.png)
+      - ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/graph_title.png)
+ 
+  8.  Logout
+      - User can able to logout by click on logout button from left hand sidebar.
