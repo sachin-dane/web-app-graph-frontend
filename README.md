@@ -14,7 +14,7 @@ To get the frontend running locally:
 - `npm install` to install all req'd dependencies
 - `npm start` to start the local server
 - Once you start nodejs server, then you need to add API end point in front end i.e. web-app-graph-frontend/.env fle
-  screenshot/env_variable.png
+  ![alt text](https://github.com/sachin-dane/web-app-graph-frontend/blob/development/screenshot/env_variable.png)
 
 ## Component architecture
   ### Components will be of the following types
