@@ -32,9 +32,8 @@ class DashboardContainer extends React.Component {
                 this.props.fetchSitesByidRequest(items.value)
             }
         );
-
-
     };
+    
     componentWillReceiveProps(nextProps) {
         if (nextProps.userSites.siteList) {
             this.setState({
@@ -178,48 +177,54 @@ class DashboardContainer extends React.Component {
                                 Object.keys(this.props.sitesById.siteList).length > 0 ?
 
                                     <>
-                                        <div className='row'>
-                                            <div className='show-site-details'>
-                                                Site Details
-                                        </div>
-                                        </div>
-                                        <div className='row'>
-                                            <div className='col-sm-6'>
-                                                <table>
-                                                    <tr>
-                                                        <td>Site Name</td>
-                                                        <td>{this.props.sitesById.siteList.siteName}</td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                            <div className='col-sm-6'>
-                                                <table>
-                                                    <tr>
-                                                        <td>Status</td>
-                                                        <td>{this.getStatus(this.props.sitesById.siteList.status)}</td>
-                                                    </tr>
-                                                </table>
-                                            </div>
+                                        <div className='row justify-content-center site-info'>
+
+                                            <h5>Site Information</h5>
+                                            <hr />
                                         </div>
                                         <div className='row'>
-                                            <div className='col-sm-6'>
-                                                <table>
-                                                    <tr>
-                                                        <td>Status</td>
-                                                        <td>{this.getStatus(this.props.sitesById.siteList.status)}</td>
-                                                    </tr>
-                                                </table>
+                                            <div className='col-sm-6 site-info-table-info'>
+
+                                                <div class="form-group site-name">
+                                                    <label for="email">Site Name:</label>
+                                                    <label for="email">{this.props.sitesById.siteList.siteName}</label>
+                                                </div>
                                             </div>
                                             <div className='col-sm-6'>
-                                                <table>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>Status</td>
-                                                            <td>{this.getStatus(this.props.sitesById.siteList.status)}</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                                <div class="form-group site-status">
+                                                    <label for="status">Status:</label>
+                                                    <label for="status">{this.getStatus(this.props.sitesById.siteList.status)}</label>
+                                                </div>
                                             </div>
+
+                                        </div>
+                                        <div className='row'>
+                                            <table border="1" className='site-info-table'>
+                                                <tr>
+                                                    <td></td>
+                                                    <th scope="col">Event Date</th>
+                                                    <th scope="col">Lifetime</th>
+                                                    <th scope="col">Instantaneous</th>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Object 1</th>
+                                                    <td>{this.props.sitesById.siteList.instantaneousObj[1][0]}</td>
+                                                    <td>{this.props.sitesById.siteList.lifetimeObj[1][1]}</td>
+                                                    <td>{this.props.sitesById.siteList.instantaneousObj[1][1]}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Object 2</th>
+                                                    <td>{this.props.sitesById.siteList.instantaneousObj[2][0]}</td>
+                                                    <td>{this.props.sitesById.siteList.lifetimeObj[2][1]}</td>
+                                                    <td>{this.props.sitesById.siteList.instantaneousObj[2][1]}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Object 3</th>
+                                                    <td>{this.props.sitesById.siteList.instantaneousObj[3][0]}</td>
+                                                    <td>{this.props.sitesById.siteList.lifetimeObj[3][1]}</td>
+                                                    <td>{this.props.sitesById.siteList.instantaneousObj[3][1]}</td>
+                                                </tr>
+                                            </table>
                                         </div>
                                     </>
                                     :

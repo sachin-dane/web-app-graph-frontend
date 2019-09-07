@@ -96,16 +96,19 @@ class UserList extends React.Component {
                                                     <th scope="col" className="sm-case">
                                                         <div>First name</div>
                                                     </th>
-                                                    <th scope="col" className="sm-case text-right">
+                                                    <th scope="col" className="sm-case text-left">
                                                         <div>Last Name</div>
                                                     </th>
-                                                    <th scope="col" className="sm-case text-right">
+                                                    <th scope="col" className="sm-case text-left">
                                                         <div>Email</div>
                                                     </th>
-                                                    <th scope="col" className="sm-case text-right">
+                                                    <th scope="col" className="sm-case text-left">
+                                                        <div>User Role</div>
+                                                    </th>
+                                                    <th scope="col" className="sm-case text-left">
                                                         <div>Status</div>
                                                     </th>
-                                                    <th scope="col" className="sm-case text-right">
+                                                    <th scope="col" className="sm-case text-left">
                                                         <div>Action</div>
                                                     </th>
                                                 </tr>
@@ -117,6 +120,7 @@ class UserList extends React.Component {
                                                             <td style={{ cursor: "pointer" }} onClick={(e) => this.userRowClick(e, item)}>{item.firstname}</td>
                                                             <td style={{ cursor: "pointer" }} onClick={(e) => this.userRowClick(e, item)}>{item.lastname}</td>
                                                             <td style={{ cursor: "pointer" }} onClick={(e) => this.userRowClick(e, item)}>{item.email}</td>
+                                                            <td style={{ cursor: "pointer" }} onClick={(e) => this.userRowClick(e, item)}>{item.role}</td>
                                                             <td style={{ cursor: "pointer" }} >
                                                                 {
                                                                     item.status == 0 ? <button type="button" class="btn btn-primary btn-xs" onClick={(e) => this.activateUser(e, item.id)}>Activate</button> : 'Active User'

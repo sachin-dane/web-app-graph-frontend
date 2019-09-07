@@ -254,12 +254,12 @@
   input[type="date"]:valid::before { display: none }
 
 
-  .userList {
+  .userList, .siteList {
     margin:0 auto;
     margin-top: 20px;
   }
 
-  .userList{
+  .userList, .siteList{
     .hangon-popup{
         .modal-dialog{
             max-width: 760px;
@@ -380,4 +380,148 @@ hr{
 
 .registration-title, .already-signin-btn{
   text-align: center;
+}
+
+.site-info{
+  padding: 10px;
+  border: 1px solid;
+  margin: 10px;
+}
+
+.site-info-table{
+  margin-top: 10px;
+  margin-left:25px;
+}
+.site-info-table > tr > th{
+  padding: 10px 20px 10px 20px;
+  text-align: center;
+}
+
+.site-info-table > tr > td{
+  padding: 10px 20px 10px 20px;
+  text-align: center;
+}
+.site-info-table-info{.site-name , .site-status{
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  label{
+    padding-right: 30px;
+  }
+  .form-group{
+    margin: 0px
+  }
+}
+}
+
+
+.site-modal{
+  .site-name , .site-status{
+    font-size: 18px;
+    font-weight: bold;
+    .form-group{
+      margin: 0px
+    }
+  }
+}
+
+.multi-select {
+  transition: none;
+  .multi-select__control {
+      background: none;
+      border-radius: 0;
+      border: 0;
+      border-bottom: 1px solid $form-fields-border;
+      &:hover {
+          border-bottom: 1px solid $form-fields-border;
+          cursor: pointer;
+      }
+      .multi-select__placeholder {
+          color: $text-grey;
+      }
+      &.multi-select__control--is-focused {
+          outline: none;
+          box-shadow: none;
+      }
+      .multi-select__indicators {
+          .multi-select__indicator-separator {
+              display: none;
+          }
+          .multi-select__dropdown-indicator {
+              svg {
+                  color: $form-arrow-color;
+                  transform-style: preserve-3d;
+                  transition: transform 0.6s;
+              }
+          }
+
+          .multi-select__clear-indicator {
+              display: none;
+          }
+      }
+      &.multi-select__control--menu-is-open {
+          border-bottom: 1px solid $form-fields-border;
+          .multi-select__dropdown-indicator {
+              svg {
+                  transform: rotateX(180deg);
+              }
+          }
+      }
+      .multi-select__value-container--is-multi {
+          .multi-select__multi-value {
+              display: none;
+          }
+          .multi-select__input {
+              input {
+                  color: $text-green !important;
+              }
+          }
+      }
+      .multi-select__input {
+          input {
+              color: $text-green !important;
+          }
+      }
+  }
+  .multi-select__menu {
+      background: $well-bg-primary;
+      box-shadow: 0 3px 10px rgba($black, 0.69);
+      border-radius: 0;
+      margin-top: 0;
+      transition: none;
+      .multi-select__option {
+          border-bottom: 1px solid #2d3136;
+          color: $primary-color;
+          cursor: pointer;
+          padding: 0.8rem 2rem;
+          text-transform: capitalize;
+          &:last-child {
+              border: 0;
+          }
+          &.multi-select__option--is-focused,
+          &.multi-select__option--is-selected {
+              color: $text-green;
+              background: transparent;
+          }
+          &:hover {
+              color: $text-green;
+          }
+          .timeline-filter & {
+              color: $secondary-color;
+              &:hover {
+                  color: $text-green;
+              }
+          }
+      }
+  }
+  .timeline-filter & {
+      min-width: 120px;
+  }
+  .multi-select__single-value {
+      color: $text-green;
+  }
+}
+
+.assing-user-btn{
+  margin-right: 20px;
 }

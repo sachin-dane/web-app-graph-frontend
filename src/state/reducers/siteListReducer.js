@@ -9,7 +9,11 @@ import {
     FETCH_USER_SITES_FAILURE,
     FETCH_SITES_BYID_REQUEST,
     FETCH_SITES_BYID_SUCCESSFUL,
-    FETCH_SITES_BYID_FAILURE
+    FETCH_SITES_BYID_FAILURE,
+    ASSIGN_USER_TO_SITE_REQUEST,
+    ASSIGN_USER_TO_SITE_SUCCESSFUL,
+    ASSIGN_USER_TO_SITE_FAILURE,
+    RESET_ASSIGN_USER_TO_SITE
 } from '../../constants/actions'
 
 
@@ -96,6 +100,43 @@ const sitesListReducer = (state = {}, action) => {
                     siteList: []
                 }
             };
+
+        case ASSIGN_USER_TO_SITE_SUCCESSFUL:
+            return {
+                ...state,
+                assignSiteUser: {
+                    isLoading: true,
+                    isAssignSuccess: true
+                }
+            };
+
+        case ASSIGN_USER_TO_SITE_REQUEST:
+            return {
+                ...state,
+                assignSiteUser: {
+                    isLoading: false,
+                    isAssignSuccess: false
+                }
+            };
+
+        case ASSIGN_USER_TO_SITE_FAILURE:
+            return {
+                ...state,
+                assignSiteUser: {
+                    isLoading: false,
+                    isAssignSuccess: false
+                }
+            };
+
+        case RESET_ASSIGN_USER_TO_SITE:
+            return {
+                ...state,
+                assignSiteUser: {
+                    isLoading: false,
+                    isAssignSuccess: false
+                }
+            };
+
         default:
             return state;
     }

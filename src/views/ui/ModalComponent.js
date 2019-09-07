@@ -9,15 +9,17 @@ const ModalComponent = ({ showModal, modalBody, onCloseHandler, title }) => {
             role="dialog">
             <div className="modal-dialog modal-dialog-centered" role="document">
                 <div className="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Details</h4>
+                    </div>
                     <div className="modal-body">
-                        <h4>{title}</h4>
                         <table >
                             <tbody>
                                 {
                                     Object.keys(modalBody).map(function (key, index) {
                                         return (
                                             <tr>
-                                                <td>{key}</td>
+                                                <td>{key}</td> : 
                                                 <td>{modalBody[key]}</td>
                                             </tr>
                                         )

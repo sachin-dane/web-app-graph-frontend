@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
 import { Can } from '@casl/react';
 import userAbilities from '../../helpers/userAbilities'
-import { find } from 'lodash';
-import moment from 'moment';
 import { returnRole } from '../../constants/common'
 
 class Sidebar extends React.Component {
@@ -15,8 +13,9 @@ class Sidebar extends React.Component {
     }
 
     onLogoutClick = () => {
+        console.log('this.props==>>>', this.props)
         localStorage.clear()
-        this.props.history.push("/");
+        // this.props.history.push("/");
     }
 
     render() {

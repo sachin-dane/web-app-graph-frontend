@@ -99,7 +99,7 @@ class SignIn extends React.Component {
                     </div>
                     <div className="row justify-content-center">
                         <div className="col-sm-6 col-sm-pull-2">
-                            <p><Link to={'/forgot-password'}>Forgot Password</Link></p>
+                            <p><Link to={'/forgot-password'}>Forgot Password?</Link></p>
                         </div>
                     </div>
                 </form>

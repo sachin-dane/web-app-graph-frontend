@@ -5,7 +5,8 @@ import _ from 'lodash';
 import {
     FETCH_SITES_LIST_REQUESTED,
     FETCH_USER_SITES_REQUESTED,
-    FETCH_SITES_BYID_REQUEST
+    FETCH_SITES_BYID_REQUEST,
+    ASSIGN_USER_TO_SITE_REQUEST
 } from '../../constants/actions'
 
 import {
@@ -14,7 +15,9 @@ import {
     fetchUserSitesSuccessful,
     fetchUserSitesFailure,
     fetchSitesByidSuccessful,
-    fetchSitesByidFailure
+    fetchSitesByidFailure,
+    assignSiteToUserSuccessful,
+    assignSiteToUserFailue
 } from '../actions/siteListActions';
 import siteListApi from '../../api/siteListApi';
 
@@ -122,10 +125,27 @@ export function* fetchSitesById(action) {
     }
 }
 
+export function* assignSiteToUser(action) {
+    console.log('lgin action==>> ', action)
+    const {
+        response
+        // error`
+    } = yield call(siteListApi.assignSiteToUser, action.payload);
+    console.log('userListSaga response==>> ', response)
+    if (response) {
+
+        yield put(assignSiteToUserSuccessful());
+    } else {
+        console.log('userListSaga response==>> elseeee')
+        yield put(assignSiteToUserFailue());
+    }
+}
+
 export default function* siteListSaga() {
     yield takeEvery(FETCH_SITES_LIST_REQUESTED, fetchSitesListRequest);
     yield takeEvery(FETCH_USER_SITES_REQUESTED, fetchUserSpecificSites);
     yield takeEvery(FETCH_SITES_BYID_REQUEST, fetchSitesById);
+    yield takeEvery(ASSIGN_USER_TO_SITE_REQUEST, assignSiteToUser);
 }
 
 

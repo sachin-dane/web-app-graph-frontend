@@ -7,8 +7,13 @@ import {
     FETCH_USER_SITES_FAILURE,
     FETCH_SITES_BYID_REQUEST,
     FETCH_SITES_BYID_SUCCESSFUL,
-    FETCH_SITES_BYID_FAILURE
+    FETCH_SITES_BYID_FAILURE,
+    ASSIGN_USER_TO_SITE_REQUEST,
+    ASSIGN_USER_TO_SITE_SUCCESSFUL,
+    ASSIGN_USER_TO_SITE_FAILURE,
+    RESET_ASSIGN_USER_TO_SITE
 } from '../../constants/actions'
+import { toast } from 'react-toastify';
 
 export const fetchSitesListRequest = data => {
     console.log('SIgnup data==>>', data)
@@ -75,6 +80,40 @@ export const fetchSitesByidFailure = data => {
         payload: data
     };
 };
+
+
+export const assignSiteToUserRequest = data => {
+    console.log('SIgnup data==>>', data)
+    return {
+        type: ASSIGN_USER_TO_SITE_REQUEST,
+        payload: data
+    };
+};
+
+export const assignSiteToUserSuccessful = data => {
+    toast.success('User Assigned to site successfully.')
+    return {
+        type: ASSIGN_USER_TO_SITE_SUCCESSFUL,
+        payload: data
+    };
+};
+
+export const assignSiteToUserFailue = data => {
+    toast.success('Something Went wrong')
+    return {
+        type: ASSIGN_USER_TO_SITE_FAILURE,
+        payload: data
+    };
+};
+
+export const resetAssignSiteToUser = data => {
+    return {
+        type: RESET_ASSIGN_USER_TO_SITE,
+        payload: data
+    };
+};
+
+
 
 
 
