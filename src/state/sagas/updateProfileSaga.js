@@ -12,16 +12,13 @@ import {
 import updateProfileApi from '../../api/updateProfileApi';
 
 export function* updateProfileApiRequest(action) {
-    console.log('lgin action==>> ', action)
     const {
         response
         // error`
     } = yield call(updateProfileApi.updateProfileApiRequest, action.payload);
-    console.log('signupsaga response==>> ', response)
     if (response) {
         yield put(updateProfileSuccessful());
     } else {
-        console.log('signupsaga response==>> elseeee')
         yield put(updateProfileFailure());
     }
 }

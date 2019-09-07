@@ -16,13 +16,9 @@ import {
 import loginApi from '../../api/loginApi';
 
 export function* loginApiRequest(action) {
-    console.log('lgin action==>> ', action)
     const {
         response
-        // error`
     } = yield call(loginApi.loginApiRequest, action.payload);
-
-    console.log('Saga response==>>', response.data.data.message)
 
     if (response && response.data.status_code === 200) {
 
@@ -34,10 +30,8 @@ export function* loginApiRequest(action) {
 }
 
 export function* getUserDetails(action) {
-    console.log('lgin action==>> ', action)
     const {
         response
-        // error`
     } = yield call(loginApi.getUserDetails, action.payload);
 
     if (response && response.data.status_code === 200) {

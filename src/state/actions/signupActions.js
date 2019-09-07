@@ -7,7 +7,6 @@ import {
 } from '../../constants/actions'
 
 export const signupRequested = data => {
-    console.log('SIgnup data==>>', data)
     return {
         type: SIGNUP_REQUESTED,
         payload: data
@@ -36,4 +35,3 @@ export const resetSignup = data => {
         payload: data
     };
 };
-

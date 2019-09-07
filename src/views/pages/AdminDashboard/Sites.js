@@ -1,16 +1,11 @@
 /* eslint-disable */
 import React from 'react';
 import { connect } from 'react-redux';
-import { find } from 'lodash';
-import moment from 'moment';
-import Header from '../../ui/Header'
 import Select from 'react-select';
 import SimpleReactValidator from 'simple-react-validator';
 import Sidebar from '../../ui/Sidebar'
-import Footer from '../../ui/Footer'
 import { fetchSitesListRequest, createSiteRequest, resetCreateSite } from '../../../state/actions/siteListActions'
 import { fetchUserListRequest } from '../../../state/actions/userListActions'
-import NoRecordFound from '../../ui/NoRecordFound'
 import SiteModal from '../../ui/SiteModal'
 
 class Sites extends React.Component {
@@ -98,7 +93,6 @@ class Sites extends React.Component {
         }
     }
     updateSelectedTypeList = field => items => {
-        console.log('field, items ==>>', field, items)
         this.setState({
             ...this.state,
             [field]: items,
@@ -130,9 +124,7 @@ class Sites extends React.Component {
                 obj3Lifetime: Number(this.state.form.obj3Lifetime),
                 obj3Instantaneous: Number(this.state.form.obj3Instantaneous),
             }
-            console.log('Payload ==>>', payload)
             this.props.createSiteRequest(payload)
-            // this.props.signupRequested(this.state.form)
         } else {
             this.validator.showMessages();
             this.forceUpdate();
@@ -146,7 +138,6 @@ class Sites extends React.Component {
         return status
     }
     render() {
-        console.log("Site List props==>>>", this.state)
         return (
             <div>
                 <main>
@@ -193,12 +184,7 @@ class Sites extends React.Component {
                                             </div>
                                         ) : (
                                             <div class="col-sm-4">
-                                                <NoRecordFound
-                                                    isloading={
-                                                        this.props.siteListData.allSites.isLoading
-                                                    }
-                                                    loadingSizeCLass="sm-loading-block"
-                                                />
+                                                <p>No Records Founds</p>
                                             </div>
                                         )}
                                 </div>
@@ -396,6 +382,7 @@ const mapDispatchToProps = dispatch => {
         fetchUserListRequest: data => dispatch(fetchUserListRequest(data)),
         createSiteRequest: data => dispatch(createSiteRequest(data)),
         fetchSitesListRequest: () => dispatch(fetchSitesListRequest()),
+        resetCreateSite: () => dispatch(resetCreateSite()),
     };
 };
 

@@ -11,7 +11,6 @@ class Profile extends React.Component {
     constructor(props) {
         super(props);
         this.validator = new SimpleReactValidator();
-        console.log('Constructor props ==>>', this.props)
         this.props.getUserRequst(Object.keys(this.props.loginData.userData).length && this.props.loginData.userData.id ? this.props.loginData.userData.id : '')
         this.state = {
             form: {

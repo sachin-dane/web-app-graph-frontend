@@ -7,7 +7,6 @@ import {
 } from '../../constants/actions'
 
 export const updateProfileRequest = data => {
-    console.log('SIgnup data==>>', data)
     return {
         type: UPDATE_PROFILE_REQUESTED,
         payload: data

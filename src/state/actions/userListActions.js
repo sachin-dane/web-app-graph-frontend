@@ -20,7 +20,6 @@ import {
 } from '../../constants/actions'
 
 export const fetchUserListRequest = data => {
-    console.log('SIgnup data==>>', data)
     return {
         type: FETCH_USER_LIST_REQUESTED,
         payload: data
@@ -43,7 +42,6 @@ export const fetchUserListFailue = data => {
 
 
 export const activateUserRequest = data => {
-    console.log('SIgnup data==>>', data)
     return {
         type: ACTIVATE_USER_REQUESTED,
         payload: data
@@ -66,7 +64,6 @@ export const activateUserFailure = data => {
 };
 
 export const deleteUserRequest = data => {
-    console.log('SIgnup data==>>', data)
     return {
         type: DELETE_USER_REQUESTED,
         payload: data
@@ -90,7 +87,6 @@ export const deleteUserFailure = data => {
 
 
 export const checkUserExist = data => {
-    console.log('SIgnup data==>>', data)
     return {
         type: CHECK_USER_EXIST_REQUEST,
         payload: data
@@ -122,7 +118,6 @@ export const resetCheckUserState = data => {
 };
 
 export const forgotPasswordRequest = data => {
-    console.log('SIgnup data==>>', data)
     return {
         type: FORGOT_PASSWORD_REQUESST,
         payload: data

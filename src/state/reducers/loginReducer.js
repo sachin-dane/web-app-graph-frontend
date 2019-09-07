@@ -22,7 +22,6 @@ const loginReducer = (state = {}, action) => {
             };
 
         case LOGIN_SUCCESSFULL:
-            console.log('Login reducer==>>', action.payload)
             localStorage.setItem('isLoggedIn', true)
             localStorage.setItem('userDetails', JSON.stringify(action.payload[0]))
             return {
@@ -48,7 +47,6 @@ const loginReducer = (state = {}, action) => {
             };
 
         case GET_USER_SUCCESS:
-            console.log('Login reducer==>>', action.payload)
             localStorage.setItem('isLoggedIn', true)
             localStorage.setItem('userDetails', JSON.stringify(action.payload[0]))
             return {

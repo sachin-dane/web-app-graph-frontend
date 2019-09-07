@@ -1,11 +1,9 @@
 /* eslint-disable no-underscore-dangle */
-
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import { ToastContainer, toast } from 'react-toastify';
-// import { toast } from 'react-toastify';
 import Header from './ui/Header'
 import Footer from './ui/Footer'
 import SignIn from './pages/HomePage/SignIn'
@@ -91,7 +89,6 @@ class View extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log('nextProps==>>', nextProps)
         if (Object.keys(nextProps.loginData.userData).length && nextProps.loginData.isLoggedIn) {
             this.setState({
                 authenticated: true
@@ -101,9 +98,7 @@ class View extends React.Component {
 
     checkLogin = () => {
         let isLogin = localStorage.getItem("isLoggedIn")
-        console.log('isLogin==>>', isLogin)
         if (isLogin) {
-            console.log('inside isLogin==>>', isLogin)
             let userDetail = JSON.parse(localStorage.getItem('userDetails'))
             this.props.loginSuccessfull([userDetail])
         }
@@ -113,7 +108,6 @@ class View extends React.Component {
      * Check if the operation is allowed for the resource
      */
     hasPermission = (operation, resource, user) => {
-        console.log('user==>>>', user)
         const permission = userAbilities(user).can(operation, resource);
         return permission;
     };
@@ -122,7 +116,6 @@ class View extends React.Component {
         let user = returnRole(role)
         /* eslint-disable consistent-return, array-callback-return */
 
-        console.log('generateRoutes props ==>>', user, user === 'Admin')
         return (
             <Switch>
                 {routes.map(route => {
@@ -165,7 +158,6 @@ class View extends React.Component {
     };
 
     nonLoginGenerateRoutes = role => {
-        console.log('This props ==>>', this.props)
         let user = returnRole(role)
         /* eslint-disable consistent-return, array-callback-return */
         return (
@@ -191,7 +183,6 @@ class View extends React.Component {
 
 
     render() {
-        console.log('view props ==>>', this.props);
         return (
             <>
                 <Header />

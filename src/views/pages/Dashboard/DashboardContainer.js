@@ -52,7 +52,6 @@ class DashboardContainer extends React.Component {
     }
 
     render() {
-        console.log('User Dashboard state==>>', this.props)
         return (
             <div>
                 <Sidebar />

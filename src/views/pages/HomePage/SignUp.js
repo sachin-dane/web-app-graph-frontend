@@ -49,7 +49,6 @@ class SignUp extends React.Component {
             signupPayload.status = 0
             signupPayload.password = base64.encode(this.state.form.password)
             delete signupPayload.confirm_password
-            console.log('signupPayload==>>', signupPayload, this.state.form)
             this.props.signupRequested(this.state.form)
         } else {
             if (this.state.form.password != this.state.form.confirm_password) {
@@ -61,7 +60,6 @@ class SignUp extends React.Component {
     }
 
     updateSelectItemList = field => items => {
-        console.log('field, items ==>>', field, items)
         this.setState({
             ...this.state,
             [field]: items,
@@ -74,9 +72,7 @@ class SignUp extends React.Component {
     };
 
     render() {
-        console.log('State==>>', this.state)
         return (
-
             !this.props.signupData.isSignupSuccessful ?
                 < div >
                     <form className='signup-form'>

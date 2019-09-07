@@ -13,13 +13,10 @@ class Sidebar extends React.Component {
     }
 
     onLogoutClick = () => {
-        console.log('this.props==>>>', this.props)
         localStorage.clear()
-        // this.props.history.push("/");
     }
 
     render() {
-        console.log('Login Sidebar Data==>>', this.props)
         return (
             <aside>
                 <nav>

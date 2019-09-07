@@ -12,7 +12,6 @@ class TableView extends React.Component {
     }
 
     render() {
-        console.log('Login Sidebar Data==>>', this.props)
         return (
             <table className={this.props.configureStyle.tableStyle}>
                 <thead>

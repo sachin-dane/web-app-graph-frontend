@@ -31,7 +31,6 @@ const userListReducer = (state = {}, action) => {
             };
 
         case FETCH_USER_LIST_SUCCESSFULL:
-            console.log('user list reducer ==>>', action.payload)
             return {
                 ...state,
                 userList: {
@@ -59,7 +58,6 @@ const userListReducer = (state = {}, action) => {
             };
 
         case DELETE_USER_SUCCESSFUL:
-            console.log('user list reducer ==>>', action.payload)
             return {
                 ...state,
                 deleteUser: {
@@ -86,7 +84,6 @@ const userListReducer = (state = {}, action) => {
             };
 
         case CHECK_USER_EXIST_SUCCESSFUL:
-            console.log('user list reducer ==>>', action.payload)
             return {
                 ...state,
                 checkUser: {
@@ -118,7 +115,6 @@ const userListReducer = (state = {}, action) => {
             };
 
         case FORGOT_PASSWORD_SUCCESSFUL:
-            console.log('user list reducer ==>>', action.payload)
             return {
                 ...state,
                 forgotPassword: {

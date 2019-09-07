@@ -137,16 +137,13 @@ class ApiUtils {
      * @param {Number} requestTimeout -  Request will wait 5 min before timing out
      */
     post = async (url, body, requestTimeout = this.defaultTimeout) => {
-        console.log('====>>>', url, body)
         let response = null;
         try {
             response = await this.request.post(url, body, {
                 timeout: requestTimeout
             });
-            console.log('API response ==>>', response)
             return response;
         } catch (ex) {
-            console.log('API ex ==>>', ex.response)
             if (ex.response && ex.response.data) {
                 return ex.response;
             } else {

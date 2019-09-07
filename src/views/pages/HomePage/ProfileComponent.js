@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import SimpleReactValidator from 'simple-react-validator';
 import { loginRequested } from '../../../state/actions/loginActions'
 
@@ -15,7 +14,6 @@ class ProfileComponent extends React.Component {
     }
 
     render() {
-        console.log('State==>>', this.props)
         return (
             <>
                 <div className="row justify-content-center">

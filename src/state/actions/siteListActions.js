@@ -20,7 +20,6 @@ import {
 import { toast } from 'react-toastify';
 
 export const fetchSitesListRequest = data => {
-    console.log('SIgnup data==>>', data)
     return {
         type: FETCH_SITES_LIST_REQUESTED,
         payload: data
@@ -42,7 +41,6 @@ export const fetchSitesListFailue = data => {
 };
 
 export const fetchUserSitesRequest = data => {
-    console.log('SIgnup data==>>', data)
     return {
         type: FETCH_USER_SITES_REQUESTED,
         payload: data
@@ -64,7 +62,6 @@ export const fetchUserSitesFailure = data => {
 };
 
 export const fetchSitesByidRequest = data => {
-    console.log('SIgnup data==>>', data)
     return {
         type: FETCH_SITES_BYID_REQUEST,
         payload: data
@@ -87,7 +84,6 @@ export const fetchSitesByidFailure = data => {
 
 
 export const assignSiteToUserRequest = data => {
-    console.log('SIgnup data==>>', data)
     return {
         type: ASSIGN_USER_TO_SITE_REQUEST,
         payload: data
@@ -121,7 +117,6 @@ export const resetAssignSiteToUser = data => {
 
 
 export const createSiteRequest = data => {
-    console.log('SIgnup data==>>', data)
     return {
         type: CREATE_SITE_REQUEST,
         payload: data

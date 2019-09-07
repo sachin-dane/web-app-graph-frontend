@@ -1,7 +1,6 @@
 import React from "react"
 
 const ModalComponent = ({ showModal, modalBody, onCloseHandler, title }) => {
-    console.log('Modal ==>>', showModal, modalBody)
     return (
         <div className={showModal ? "modal fade in hangon-popup" : "modal fade"}
             tabIndex="-1"

@@ -16,7 +16,6 @@ export const loginRequested = data => {
 };
 
 export const loginSuccessfull = data => {
-    console.log('data==>>', data)
     return {
         type: LOGIN_SUCCESSFULL,
         payload: data
@@ -24,7 +23,6 @@ export const loginSuccessfull = data => {
 };
 
 export const loginFailure = data => {
-    console.log('login reducer data==>>', data)
     toast.error(`${data.message}`);
     return {
         type: LOGIN_FAILURE,

@@ -1,5 +1,4 @@
 // List of severities
-const severities = ['low', 'medium', 'high', 'critical'];
 
 const returnRole = (role) => {
     let user = ''
@@ -9,4 +8,4 @@ const returnRole = (role) => {
     return user
 }
 
-export { severities, returnRole };
+export { returnRole };

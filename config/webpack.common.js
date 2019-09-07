@@ -1,13 +1,9 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import InterpolateHtmlPlugin from './utils/InterpolateHtmlPlugin';
 
 import paths from './paths';
 import getClientEnvironment from './env';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
-import HtmlWebpackIncludeAssetsPlugin from 'html-webpack-include-assets-plugin';
-const isEnvDevelopment = process.env.NODE_ENV === 'development';
 const isEnvProduction = process.env.NODE_ENV === 'production';
 
 const env = getClientEnvironment('');

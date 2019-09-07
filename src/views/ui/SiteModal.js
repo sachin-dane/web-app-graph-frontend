@@ -36,7 +36,6 @@ class SiteModal extends React.Component {
         return inputValue;
     };
     updateSelectItemList = field => items => {
-        console.log('field, items ==>>', field, items)
         this.setState({
             ...this.state,
             [field]: items,
@@ -48,7 +47,6 @@ class SiteModal extends React.Component {
         });
     };
     updateSelectedTypeList = field => items => {
-        console.log('field, items ==>>', field, items)
         this.setState({
             ...this.state,
             [field]: items,
@@ -69,7 +67,6 @@ class SiteModal extends React.Component {
         } else {
             let payload = this.state.form
             payload.site_id = Number(this.props.modalBody.id)
-            console.log('payload==>>', payload)
             this.props.assignSiteToUserRequest(payload)
         }
     }
@@ -91,7 +88,6 @@ class SiteModal extends React.Component {
     }
 
     render() {
-        console.log('Login Sidebar Data==>>', this.state)
         return (
             <div className={this.props.showModal ? "modal fade in hangon-popup" : "modal fade"}
                 tabIndex="-1"

@@ -10,8 +10,6 @@ import 'bootstrap/dist/js/bootstrap';
 import './assets/style/app.css';
 import './assets/style/appStyles.scss';
 import View from './views/View';
-// import { FETCH_RULES_REQUESTED } from './constants/actions';
-import PageNotFound from './views/ui/PageNotFound';
 
 class App extends React.Component {
     componentWillUnmount() { }
@@ -20,7 +18,6 @@ class App extends React.Component {
         return (
             <>
                 <Switch>
-                    {/* <Route path="/page-not-found" component={PageNotFound} /> */}
                     <Route path="/" component={View} />
                 </Switch>
             </>

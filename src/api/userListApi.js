@@ -3,9 +3,7 @@ const rootUrl = window._env_.REACT_APP_API_ROOT;
 
 const fetchUserListRequestAsync = async data => {
     try {
-        console.log('Data==>>', data)
         const response = await ApiUtils.get(`${rootUrl}/users`, data);
-        console.log('response==>>', response)
         if (response.data.status_code === 200) {
             return { response };
         } else {
@@ -13,16 +11,13 @@ const fetchUserListRequestAsync = async data => {
         }
 
     } catch (error) {
-        console.log('error==>>', error)
         return { error: { ...error.data } };
     }
 };
 
 const activateUser = async data => {
     try {
-        console.log('Data==>>', data)
         const response = await ApiUtils.put(`${rootUrl}/users`, data);
-        console.log('response==>>', response)
         if (response.data.status_code === 200) {
             return { response };
         } else {
@@ -30,7 +25,6 @@ const activateUser = async data => {
         }
 
     } catch (error) {
-        console.log('error==>>', error)
         return { error: { ...error.data } };
     }
 };
@@ -38,9 +32,7 @@ const activateUser = async data => {
 
 const deleteUser = async data => {
     try {
-        console.log('Data==>>', data)
         const response = await ApiUtils.del(`${rootUrl}/users/${data}`);
-        console.log('response==>>', response)
         if (response.data.status_code === 200) {
             return { response };
         } else {
@@ -48,21 +40,16 @@ const deleteUser = async data => {
         }
 
     } catch (error) {
-        console.log('error==>>', error)
         return { error: { ...error.data } };
     }
 };
 
 const checkUserExist = async data => {
-    console.log('rootUrl==>>', rootUrl)
     try {
-        console.log('Data==>>', data)
         const response = await ApiUtils.post(`${rootUrl}/users/check`, data);
-        console.log('response login api ==>>', response)
         if (response.data.status_code === 200) {
             return { response };
         } else {
-            console.log()
             return { response };
         }
 
@@ -72,15 +59,11 @@ const checkUserExist = async data => {
 };
 
 const forgotPassword = async data => {
-    console.log('rootUrl==>>', rootUrl)
     try {
-        console.log('Data==>>', data)
         const response = await ApiUtils.put(`${rootUrl}/users/password/update`, data);
-        console.log('response login api ==>>', response)
         if (response.data.status_code === 200) {
             return { response };
         } else {
-            console.log()
             return { response };
         }
 

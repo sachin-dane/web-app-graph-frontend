@@ -39,7 +39,6 @@ class SignIn extends React.Component {
     }
 
     render() {
-        console.log('State==>>', this.state)
         return (
             <div>
                 <form className='sign-form container'>

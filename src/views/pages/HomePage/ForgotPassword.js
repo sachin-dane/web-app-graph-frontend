@@ -70,7 +70,6 @@ class ForgotPassword extends React.Component {
 
 
     render() {
-        console.log('Forgot State==>>', this.state)
         return (
             !this.props.userListData.forgotPassword.isPasswordUpdated ?
                 !this.props.userListData.checkUser.isUserExist ?

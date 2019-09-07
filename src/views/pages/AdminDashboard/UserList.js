@@ -1,14 +1,8 @@
 /* eslint-disable */
 import React from 'react';
 import { connect } from 'react-redux';
-import Select from 'react-select';
-import { find } from 'lodash';
-import moment from 'moment';
-import Header from '../../ui/Header'
 import Sidebar from '../../ui/Sidebar'
-import Footer from '../../ui/Footer'
 import { fetchUserListRequest, activateUserRequest, deleteUserRequest } from '../../../state/actions/userListActions'
-import NoRecordFound from '../../ui/NoRecordFound'
 import ModalComponent from '../../ui/ModalComponent'
 
 class UserList extends React.Component {
@@ -53,7 +47,6 @@ class UserList extends React.Component {
     }
 
     updateSelectItemList = field => items => {
-        console.log('field, items ==>>', field, items)
         this.setState({
             [field]: items,
             loaded: true
@@ -65,14 +58,10 @@ class UserList extends React.Component {
             },
             () => {
                 this.props.fetchSitesByidRequest(items.value)
-            }
-        );
-
-
+            });
     };
 
     render() {
-        console.log("User List props==>>>", this.state)
         return (
             <div>
                 <main>
@@ -142,12 +131,7 @@ class UserList extends React.Component {
                                     </div>
                                 ) : (
                                     <div class="col-sm-4">
-                                        <NoRecordFound
-                                            isloading={
-                                                this.props.userListData.userList.isLoading
-                                            }
-                                            loadingSizeCLass="sm-loading-block"
-                                        />
+                                        <p>No Records Founds</p>
                                     </div>
                                 )}
                         </div>

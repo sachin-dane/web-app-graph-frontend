@@ -26,28 +26,21 @@ import {
 import siteListApi from '../../api/siteListApi';
 
 export function* fetchSitesListAsync(action) {
-    console.log('lgin action==>> ', action)
     const {
         response
-        // error`
     } = yield call(siteListApi.fetchSitesListAsync, action.payload);
-    console.log('userListSaga response==>> ', response)
     if (response && response.data.data.data.length) {
 
         yield put(fetchSitesListSuccessful(response.data.data.data));
     } else {
-        console.log('userListSaga response==>> elseeee')
         yield put(fetchSitesListFailue());
     }
 }
 
 export function* fetchUserSpecificSites(action) {
-    console.log('lgin action==>> ', action)
     const {
         response
-        // error`
     } = yield call(siteListApi.fetchUserSpecificSites, action.payload);
-    // console.log('user Sites response==>> ', response.data.data)
     if (response) {
 
         let sites = {
@@ -78,21 +71,16 @@ export function* fetchUserSpecificSites(action) {
             }
 
         })
-        console.log('Result ==>>>', sites)
         yield put(fetchUserSitesSuccessful(sites));
     } else {
-        console.log('userListSaga response==>> elseeee')
         yield put(fetchUserSitesFailure());
     }
 }
 
 export function* fetchSitesById(action) {
-    console.log('lgin action==>> ', action)
     const {
         response
-        // error`
     } = yield call(siteListApi.fetchSitesById, action.payload);
-    console.log('fetchSitesById response==>> ', response)
     if (response) {
         if (response.data.data.data.length > 0) {
             let sitesBarData = {
@@ -103,7 +91,6 @@ export function* fetchSitesById(action) {
             }
             let colorList = ['#2196f3', '#f3212d', '#2df321']
             response.data.data.data.map((item, index) => {
-                console.log('index==>>', index)
                 let instantData = []
                 let lifetimeData = []
                 instantData.push(new Date(item.event_date).toLocaleDateString()) // DD/ MM /YYYY
@@ -115,48 +102,38 @@ export function* fetchSitesById(action) {
                 sitesBarData.instantaneousObj.push(instantData)
                 sitesBarData.lifetimeObj.push(lifetimeData)
             })
-            console.log('sitesBarData==>>', sitesBarData)
             yield put(fetchSitesByidSuccessful(sitesBarData));
 
         } else {
-            console.log('sitesBarData==>>')
             yield put(fetchSitesByidFailure());
         }
 
     } else {
-        console.log('userListSaga response==>> elseeee')
         yield put(fetchSitesByidFailure());
     }
 }
 
 export function* assignSiteToUser(action) {
-    console.log('lgin action==>> ', action)
     const {
         response
         // error`
     } = yield call(siteListApi.assignSiteToUser, action.payload);
-    console.log('userListSaga response==>> ', response)
     if (response) {
 
         yield put(assignSiteToUserSuccessful());
     } else {
-        console.log('userListSaga response==>> elseeee')
         yield put(assignSiteToUserFailue());
     }
 }
 
 export function* createSiteRequest(action) {
-    console.log('lgin action==>> ', action)
     const {
         response
-        // error`
     } = yield call(siteListApi.createSiteRequest, action.payload);
-    console.log('userListSaga response==>> ', response)
     if (response) {
         yield put(fetchSitesListRequest())
         yield put(createSiteSuccessful());
     } else {
-        console.log('userListSaga response==>> elseeee')
         yield put(createSiteFailue());
     }
 }

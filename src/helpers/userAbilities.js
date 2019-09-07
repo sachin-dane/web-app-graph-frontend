@@ -16,16 +16,6 @@ const defineAbilitiesFor = user => {
             cannot('view', 'sites');
 
         }
-        // else {
-        //     cannot('view', 'configure');
-        //     // Rules related abilities of a organization user
-        //     cannot('manage', 'rules');
-        //     can('read', 'rules');
-
-        //     // Rules related abilities of a organization user
-        //     cannot('manage', 'report');
-        //     cannot('manage', 'users');
-        // }
     });
 };
 
