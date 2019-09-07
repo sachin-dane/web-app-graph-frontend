@@ -18,6 +18,7 @@ import Profile from './pages/Dashboard/Profile'
 import { returnRole } from '../constants/common'
 import { loginSuccessfull } from '../state/actions/loginActions'
 import PageNotFound from './ui/PageNotFound';
+import ForgotPassword from './pages/HomePage/ForgotPassword'
 
 const routes = [
     {
@@ -65,6 +66,13 @@ const nonLoginRoutes = [
         path: '/signup',
         exact: true
     },
+    {
+        component: ForgotPassword,
+        path: '/forgot-password',
+        exact: true
+    },
+
+
 ];
 
 

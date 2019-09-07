@@ -1,6 +1,8 @@
-/* eslint-disable no-console */
+/* eslint-disable */
 import React from 'react';
 import { connect } from 'react-redux';
+import Select from 'react-select';
+import base64 from 'base-64';
 import { Link, Redirect } from 'react-router-dom';
 import SimpleReactValidator from 'simple-react-validator';
 import { signupRequested } from '../../../state/actions/signupActions'
@@ -22,8 +24,14 @@ class SignUp extends React.Component {
                 zip_code: '',
                 address: '',
                 password: '',
-                confirm_password: ''
-            }
+                confirm_password: '',
+                user_role: ''
+            },
+            selectedUserRole: '',
+            userRoleList: [
+                { value: 2, label: 'Developer' },
+                { value: 3, label: 'Reviewer' }
+            ]
         };
     }
     inputChangeHandler = (event) => {
@@ -39,6 +47,9 @@ class SignUp extends React.Component {
         if (this.validator.allValid() && this.state.form.password === this.state.form.confirm_password) {
             let signupPayload = this.state.form
             signupPayload.status = 0
+            signupPayload.password = base64.encode(this.state.form.password)
+            delete signupPayload.confirm_password
+            console.log('signupPayload==>>', signupPayload, this.state.form)
             this.props.signupRequested(this.state.form)
         } else {
             if (this.state.form.password != this.state.form.confirm_password) {
@@ -48,12 +59,31 @@ class SignUp extends React.Component {
             this.forceUpdate();
         }
     }
+
+    updateSelectItemList = field => items => {
+        console.log('field, items ==>>', field, items)
+        this.setState({
+            ...this.state,
+            [field]: items,
+            loaded: true,
+            form: {
+                ...this.state.form,
+                user_role: items.value
+            }
+        });
+    };
+
     render() {
+        console.log('State==>>', this.state)
         return (
 
             !this.props.signupData.isSignupSuccessful ?
                 < div >
                     <form className='signup-form'>
+                        <div className="registration-title">
+                            <h5>Registration Form</h5>
+                        </div>
+                        <hr />
                         <div className="row justify-content-center">
                             <div className="col-sm-4">
                                 <input type="text" className="form-control"
@@ -190,7 +220,7 @@ class SignUp extends React.Component {
                             </div>
                         </div>
                         <div className="row justify-content-center">
-                            <div className="col-sm-8">
+                            <div className="col-sm-4">
                                 <input type="text"
                                     className="form-control" name='address'
                                     placeholder="Address"
@@ -207,9 +237,27 @@ class SignUp extends React.Component {
                                     )}
                                 </span>
                             </div>
-                            {/* <div className="col-sm-4">
-                        <input data-placeholder="Date of birth" required aria-required="true" class="form-control textbox-n" type="date" name='dob' id="date" name='dob' />
-                    </div> */}
+                            <div className="col-sm-4">
+                                <Select
+                                    value={this.state.selectedUserRole}
+                                    onChange={this.updateSelectItemList(
+                                        'selectedUserRole'
+                                    )}
+                                    options={this.state.userRoleList}
+                                    className="multi-select"
+                                    classNamePrefix="multi-select"
+                                    isSearchable={false}
+                                    placeholder="Select User Role"
+                                />
+                                <span style={{ color: '#d54b50' }}>
+                                    {' '}
+                                    {this.validator.message(
+                                        'User Role',
+                                        this.state.form.address,
+                                        ['required']
+                                    )}
+                                </span>
+                            </div>
 
                         </div>
                         <div className="row justify-content-center">
@@ -254,7 +302,7 @@ class SignUp extends React.Component {
                                 <p>By signing up you agree to our terms of use & privacy policy.</p>
                             </div>
                         </div>
-                        <div className="row justify-content-center already-signin-btn">
+                        <div className="already-signin-btn">
                             <p>Already have an account? <Link to={'/signin'}>Log In</Link></p>
                         </div>
 

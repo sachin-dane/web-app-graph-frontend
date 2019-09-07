@@ -17,7 +17,7 @@ const fetchSitesListRequest = async data => {
 const fetchUserSpecificSites = async data => {
     try {
         console.log('site list apiData==>>', data)
-        const response = await ApiUtils.get(`${rootUrl}/sites/users/${data}`);
+        const response = await ApiUtils.get(`${rootUrl}/sites/users/${data.id}/${data.role_id}`, data);
         console.log('response==>>', response)
         if (response.data.status_code === 200) {
             return { response };

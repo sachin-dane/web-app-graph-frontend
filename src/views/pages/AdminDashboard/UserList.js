@@ -1,12 +1,13 @@
-/* eslint-disable no-console */
+/* eslint-disable */
 import React from 'react';
 import { connect } from 'react-redux';
+import Select from 'react-select';
 import { find } from 'lodash';
 import moment from 'moment';
 import Header from '../../ui/Header'
 import Sidebar from '../../ui/Sidebar'
 import Footer from '../../ui/Footer'
-import { fetchUserListRequest, activateUserRequest } from '../../../state/actions/userListActions'
+import { fetchUserListRequest, activateUserRequest, deleteUserRequest } from '../../../state/actions/userListActions'
 import NoRecordFound from '../../ui/NoRecordFound'
 import ModalComponent from '../../ui/ModalComponent'
 
@@ -17,7 +18,12 @@ class UserList extends React.Component {
             showModal: false,
             modalBody: "",
             title: "",
-            currentObject: {}
+            currentObject: {},
+            userRole: [
+                { value: 1, label: 'Admin' },
+                { value: 2, label: 'Developer' },
+                { value: 3, label: 'Reveiwer' }
+            ]
         };
         this.props.fetchUserListRequest()
     }
@@ -41,8 +47,32 @@ class UserList extends React.Component {
         this.props.activateUserRequest(payload)
     }
 
+    deleteeUser = (e, id) => {
+        e.preventDefault()
+        this.props.deleteUserRequest({ id: id })
+    }
+
+    updateSelectItemList = field => items => {
+        console.log('field, items ==>>', field, items)
+        this.setState({
+            [field]: items,
+            loaded: true
+        });
+        this.setState(
+            {
+                [field]: items,
+                loaded: true
+            },
+            () => {
+                this.props.fetchSitesByidRequest(items.value)
+            }
+        );
+
+
+    };
+
     render() {
-        console.log("User List props==>>>", this.props)
+        console.log("User List props==>>>", this.state)
         return (
             <div>
                 <main>
@@ -56,9 +86,9 @@ class UserList extends React.Component {
                             </div>
                         </div>
                         <div className="row justify-content-center">
-                            {!this.props.userListData.isLoading &&
-                                this.props.userListData.userList &&
-                                this.props.userListData.userList.length ? (
+                            {!this.props.userListData.userList.isLoading &&
+                                this.props.userListData.userList.userList &&
+                                this.props.userListData.userList.userList.length ? (
                                     <div className="">
                                         <table className="table table-striped">
                                             <thead>
@@ -75,19 +105,31 @@ class UserList extends React.Component {
                                                     <th scope="col" className="sm-case text-right">
                                                         <div>Status</div>
                                                     </th>
+                                                    <th scope="col" className="sm-case text-right">
+                                                        <div>Action</div>
+                                                    </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {this.props.userListData.userList.map((item, index) => {
+                                                {this.props.userListData.userList.userList.map((item, index) => {
                                                     return (
-                                                        <tr key={`tablelist${index + 1}`} style={{ cursor: "pointer" }} onClick={(e) => this.userRowClick(e, item)}>
-                                                            <td>{item.firstname}</td>
-                                                            <td>{item.lastname}</td>
-                                                            <td>{item.email}</td>
-                                                            <td>
+                                                        <tr key={`tablelist${index + 1}`} >
+                                                            <td style={{ cursor: "pointer" }} onClick={(e) => this.userRowClick(e, item)}>{item.firstname}</td>
+                                                            <td style={{ cursor: "pointer" }} onClick={(e) => this.userRowClick(e, item)}>{item.lastname}</td>
+                                                            <td style={{ cursor: "pointer" }} onClick={(e) => this.userRowClick(e, item)}>{item.email}</td>
+                                                            <td style={{ cursor: "pointer" }} >
                                                                 {
                                                                     item.status == 0 ? <button type="button" class="btn btn-primary btn-xs" onClick={(e) => this.activateUser(e, item.id)}>Activate</button> : 'Active User'
-                                                                }</td>
+                                                                }
+                                                            </td>
+                                                            <td style={{ cursor: "pointer" }} >
+                                                                <button type="button" class="btn btn-danger btn-xs" onClick={(e) => this.deleteeUser(e, item.id)}>delete</button>
+                                                            </td>
+                                                            <td>
+                                                                <div>
+
+                                                                </div>
+                                                            </td>
                                                         </tr>
                                                     );
                                                 })}
@@ -98,7 +140,7 @@ class UserList extends React.Component {
                                     <div class="col-sm-4">
                                         <NoRecordFound
                                             isloading={
-                                                this.props.userListData.isLoading
+                                                this.props.userListData.userList.isLoading
                                             }
                                             loadingSizeCLass="sm-loading-block"
                                         />
@@ -135,8 +177,7 @@ const mapDispatchToProps = dispatch => {
     return {
         fetchUserListRequest: data => dispatch(fetchUserListRequest(data)),
         activateUserRequest: data => dispatch(activateUserRequest(data)),
-
-
+        deleteUserRequest: data => dispatch(deleteUserRequest(data)),
     };
 };
 

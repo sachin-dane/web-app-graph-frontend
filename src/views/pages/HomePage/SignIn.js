@@ -1,6 +1,7 @@
-/* eslint-disable no-console */
+/* eslint-disable */
 import React from 'react';
 import { connect } from 'react-redux';
+import base64 from 'base-64';
 import { Link } from 'react-router-dom';
 import SimpleReactValidator from 'simple-react-validator';
 import { loginRequested } from '../../../state/actions/loginActions'
@@ -27,6 +28,8 @@ class SignIn extends React.Component {
     onSignInClick = (e) => {
         e.preventDefault()
         if (this.validator.allValid()) {
+            let signinPayload = this.state.form
+            signinPayload.password = base64.encode(this.state.form.password)
             this.props.loginRequested(this.state.form)
         } else {
             this.validator.showMessages();
@@ -41,6 +44,12 @@ class SignIn extends React.Component {
             <div>
                 <form className='sign-form container'>
                     <div className="row justify-content-center">
+                        <div className="col-sm-4">
+                            <h3>Login</h3>
+                        </div>
+                    </div>
+                    <hr />
+                    <div className="row justify-content-center">
                         <div className="col-sm-6">
                             <input type="text"
                                 className="form-control"
@@ -51,11 +60,7 @@ class SignIn extends React.Component {
                             />
                             <span style={{ color: '#d54b50' }}>
                                 {' '}
-                                {this.validator.message(
-                                    'email',
-                                    this.state.form.email,
-                                    ['required']
-                                )}
+                                {this.validator.message('email', this.state.form.email, 'required|email')}
                             </span>
 
                         </div>
@@ -90,7 +95,11 @@ class SignIn extends React.Component {
                                 class="btn btn-primary "
                                 onClick={(e) => this.onSignInClick(e)}
                             >Sign in</button>
-                            <p>Forgot Password </p>
+                        </div>
+                    </div>
+                    <div className="row justify-content-center">
+                        <div className="col-sm-6 col-sm-pull-2">
+                            <p><Link to={'/forgot-password'}>Forgot Password</Link></p>
                         </div>
                     </div>
                 </form>

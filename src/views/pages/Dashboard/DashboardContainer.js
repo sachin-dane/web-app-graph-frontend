@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable */
 import React from 'react';
 import { connect } from 'react-redux';
 import { Chart } from "react-google-charts";
@@ -15,7 +15,7 @@ class DashboardContainer extends React.Component {
             inactiveSitesList: []
         };
         console.log('dasboard props=>>>', this.props)
-        this.props.fetchUserSitesRequest(this.props.loginData.userData.id)
+        this.props.fetchUserSitesRequest({ id: this.props.loginData.userData.id, role_id: props.loginData.userData.user_role })
     }
     updateSelectItemList = field => items => {
         console.log('field, items ==>>', field, items)

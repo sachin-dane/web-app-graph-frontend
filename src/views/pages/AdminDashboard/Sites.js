@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable */
 import React from 'react';
 import { connect } from 'react-redux';
 import { find } from 'lodash';

@@ -18,6 +18,10 @@
     margin:0 auto;
   }
   
+  table.table td a.delete {
+    color: #E34724;
+}
+
   /*couleurs desfonds*/
   
   nav {
@@ -146,7 +150,7 @@
     bottom: 0;
     width: 100%;
     z-index: 5;
-    height: 7vh;
+    height: 8vh;
     display: flex;
     flex-flow: column wrap;
   }
@@ -186,7 +190,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: 60px;
+    height: 70px;
     ul{
        margin-bottom: 0px
      }
@@ -216,9 +220,9 @@
   }
 
   .signup-form{
-    margin: 100px 100px 0px 100px;
+    margin: 90px 60px 0px 60px;
     border: 1px solid;
-    padding: 20px 0px 0px 0px;
+    padding: 10px 0px 0px 0px;
     box-shadow: 0 0 20px rgba(33,33,33,.2);
     .row{
       padding-bottom: 13px;
@@ -230,8 +234,8 @@
     width: 100%;
     margin: 130px auto 0;
     border: 1px solid;
-    /* padding: 20px; */
-    padding-top: 100px;
+    padding: 20px;
+    // padding-top: 100px;
     box-shadow: 0 0 20px rgba(33,33,33,.2);
   .row{
     padding-bottom: 15px;
@@ -367,6 +371,13 @@
   border-radius: 8px;
 }
 
-.already-signin-btn{
-  
+
+hr{
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 2px solid rgba(0,0,0,.1)
+}
+
+.registration-title, .already-signin-btn{
+  text-align: center;
 }

@@ -27,8 +27,20 @@ const initialState = {
     },
     userList: {
         userListData: {
-            isLoading: false,
-            userList: []
+            userList: {
+                isLoading: false,
+                userList: [],
+            },
+            deleteUser: {
+                isLoading: false,
+                isUserDeleted: false
+            },
+            checkUser: {
+                isUserExist: false
+            },
+            forgotPassword: {
+                isPasswordUpdated: false
+            }
         }
     },
     siteList: {
