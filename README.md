@@ -31,7 +31,7 @@ To get the frontend running locally:
   - admin@mail.com / admin@123
 
   ### Developer Account
-  - rober_downey@mail.com / robert@123
+  - robert_downey@mail.com / robert@123
   - chris_hemsworth@mail.com / chris@123
   - bradley_cooper@mail.com / bradley@123
   - matt_damon@mail.com / matt@123
