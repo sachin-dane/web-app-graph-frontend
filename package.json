@@ -81,7 +81,7 @@
     "@casl/ability": "^3.0.1",
     "@casl/react": "^1.0.2",
     "@data-ui/histogram": "0.0.76",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "base-64": "^0.1.0",
     "bootstrap": "^4.3.1",
     "compression": "^1.7.3",
